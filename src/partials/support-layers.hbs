@@ -1,0 +1,68 @@
+<section
+  class="support-layers"
+  data-layer-panel
+  role="dialog"
+  aria-labelledby="layer-title"
+  tabindex="-1"
+  data-initial-hidden="{{not page.layerOpen}}"
+>
+  <header>
+    <h2 id="layer-title">해양 레이어 <span data-layer-count></span></h2>
+    <button type="button" data-layer-close aria-label="해양 레이어 닫기">
+      <img src="{{rootPath}}/images/support/layer-close.svg" alt="" />
+    </button>
+  </header>
+  <div class="support-layers__body">
+    <details class="layer-category" data-initial-open="{{page.layerExpanded}}">
+      <summary>
+        향해지원 <span data-layer-count></span
+        ><img class="layer-expand" src="{{rootPath}}/images/support/expand.svg" alt="" /><img
+          class="layer-collapse"
+          src="{{rootPath}}/images/support/collapse.svg"
+          alt=""
+        />
+      </summary>
+      <div class="layer-groups">
+        {{#each layerGroups}}
+        <section>
+          <h3>{{label}}</h3>
+          <div>
+            {{#each items}}<label
+              ><input
+                type="checkbox"
+                data-support-layer
+                value="{{name}}"
+                data-initial-checked="{{and @root.page.activeLayers checked}}"
+              />{{#if square}}<i class="layer-square"></i>{{else}}<img
+                src="{{@root.rootPath}}/images/support/{{choose line 'layer-line.svg' 'layer-circle.svg'}}"
+                alt=""
+              />{{/if}}<span>{{name}}</span></label
+            >{{/each}}
+          </div>
+        </section>
+        {{/each}}
+      </div>
+    </details>
+    {{#each layerOther}}
+    <details class="layer-category layer-category--secondary">
+      <summary>
+        {{this}}<span data-layer-count></span
+        ><img class="layer-expand" src="{{@root.rootPath}}/images/support/expand.svg" alt="" /><img
+          class="layer-collapse"
+          src="{{@root.rootPath}}/images/support/collapse.svg"
+          alt=""
+        />
+      </summary>
+      <div class="layer-extra">
+        <label><input type="checkbox" data-support-layer value="{{this}}" />{{this}}</label>
+      </div>
+    </details>
+    {{/each}}
+    <div class="layer-chips" data-layer-chips hidden>
+      <button type="button" data-layer-reset aria-label="레이어 선택 초기화">
+        <img src="{{rootPath}}/images/support/layer-reset.svg" alt="" />
+      </button>
+      <div data-layer-chip-list></div>
+    </div>
+  </div>
+</section>

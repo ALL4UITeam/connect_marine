@@ -1,0 +1,230 @@
+.traffic-table {
+  .support-table-head,
+  .traffic-row {
+    grid-template-columns: 47px minmax(0, 1fr) 45px 45px;
+  }
+}
+.accident-table {
+  .support-table-head,
+  .accident-row {
+    grid-template-columns: minmax(0, 1fr) 56px 44px 68px;
+  }
+}
+.support-table-head > span,
+.traffic-row > span,
+.accident-row > span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+.support-table-head {
+  height: auto;
+  min-height: 30px;
+  padding-block: 4px;
+}
+.traffic-row,
+.accident-row {
+  height: auto;
+  padding-block: 6px;
+  line-height: 1.4;
+}
+.traffic-row {
+  min-height: 40px;
+}
+.accident-row {
+  min-height: 42px;
+}
+.traffic-row > span:nth-child(3),
+.accident-row > span:last-child {
+  white-space: nowrap;
+}
+.support-scroll,
+.result-list,
+.layer-panel,
+.support-layers__body {
+  min-width: 0;
+}
+.result-row {
+  height: auto;
+  min-height: 45px;
+  padding-block: 7px;
+  &__selection > span {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    column-gap: 2px;
+    row-gap: 3px;
+  }
+  &__selection strong,
+  &__selection small {
+    min-width: 0;
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    line-height: 1.35;
+  }
+  &__selection small {
+    flex-basis: 100%;
+    margin-top: 0;
+  }
+  &__actions,
+  &__actions button,
+  .agency-logo {
+    flex-shrink: 0;
+  }
+}
+.date-result__toggle > span,
+.result-set__heading label,
+.result-set__caption > span {
+  min-width: 0;
+  flex-wrap: wrap;
+  overflow-wrap: anywhere;
+}
+.result-set__heading {
+  padding-block: 6px;
+}
+.result-set__heading strong {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.result-set__caption {
+  gap: 8px;
+}
+.result-set__caption small,
+.date-result__toggle > img {
+  flex-shrink: 0;
+}
+.layer-option {
+  gap: 10px;
+  > div {
+    min-width: 0;
+  }
+  strong,
+  small {
+    overflow-wrap: anywhere;
+    line-height: 1.35;
+  }
+  .switch {
+    flex-shrink: 0;
+  }
+}
+.camera-target {
+  &__toggle {
+    height: auto;
+    min-height: 36px;
+    gap: 8px;
+  }
+  &__toggle > span,
+  &__list span {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+  &__toggle > span {
+    flex-wrap: wrap;
+  }
+  &__list button,
+  img,
+  .color-dot {
+    flex-shrink: 0;
+  }
+}
+.support-layers label {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  > span {
+    min-width: 0;
+  }
+  > img,
+  > i {
+    flex-shrink: 0;
+  }
+}
+.layer-category > summary,
+.support-filter summary {
+  height: auto;
+  min-height: 36px;
+  padding-block: 8px;
+  overflow-wrap: anywhere;
+  > img,
+  > span {
+    flex-shrink: 0;
+  }
+}
+.layer-chips {
+  > div {
+    flex: 1;
+    min-width: 0;
+  }
+  [data-chip] {
+    max-width: 100%;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    text-align: left;
+  }
+  img {
+    flex-shrink: 0;
+  }
+}
+.poi-card dl div,
+.accident-detail dl div {
+  gap: 8px;
+  align-items: center;
+}
+.poi-card dt,
+.accident-detail dt {
+  flex-shrink: 0;
+}
+.poi-card dd,
+.accident-detail dd {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  text-align: right;
+}
+.poi-card p {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.accident-detail header {
+  gap: 8px;
+}
+.accident-detail h2 {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.accident-detail header button,
+.accident-detail h2 img {
+  flex-shrink: 0;
+}
+.accident-detail footer {
+  flex-wrap: wrap;
+}
+.page-index {
+  table {
+    table-layout: fixed;
+  }
+  th,
+  td {
+    overflow-wrap: anywhere;
+  }
+  th:first-child {
+    width: 60px;
+  }
+  th:nth-child(2) {
+    width: 130px;
+  }
+  th:last-child {
+    width: 260px;
+  }
+  td a {
+    white-space: normal;
+  }
+}
+
+.result-set__heading label {
+  flex: 1;
+  flex-wrap: nowrap;
+}
+.result-set__heading strong {
+  min-width: 0;
+}

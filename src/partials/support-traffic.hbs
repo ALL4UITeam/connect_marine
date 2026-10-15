@@ -1,0 +1,27 @@
+<header class="traffic-heading">
+  <div>
+    <span>TRAFFIC GRID STATS</span>
+    <h1>그리드별 통계</h1>
+  </div>
+  <small>8개 격자</small>
+</header>
+<div class="support-scroll traffic-table">
+  <div class="support-table-head">
+    <span>격자번호</span><span>좌표(위경도)</span><span>교통량</span><span>밀집도</span>
+  </div>
+  {{#each trafficRows}}<button
+    type="button"
+    class="traffic-row {{choose selected 'is-selected' ''}}"
+    data-grid="{{id}}"
+    aria-pressed="{{selected}}"
+  >
+    <span><i class="{{choose hot 'traffic-hot' ''}}">{{id}}</i></span
+    ><span>38.210°N, 128.580°E</span><span><b>{{count}}</b> 척</span
+    ><span><em class="support-badge support-badge--{{tone}}">{{density}}%</em></span></button
+  ><img
+    class="support-table-line"
+    src="{{@root.rootPath}}/images/support/table-line.svg"
+    alt=""
+  />{{/each}}
+</div>
+{{> support-pagination}}

@@ -1,0 +1,32 @@
+<figure class='map-scene'><img
+    class='map-image'
+    src='{{rootPath}}/images/{{page.map}}'
+    alt='속초 해안 지도'
+  />
+  {{#if page.isResult}}
+    {{#if page.isRoute}}
+      {{#each driftTypes}}<div
+          class='drift-marker'
+          data-marker='{{id}}'
+          style='left:{{left}}%;top:{{top}}%;--item-color:{{color}}'
+          aria-label='{{name}}'
+        ><span class='drift-marker__outer'><span><i></i></span></span><img
+            src='{{@root.rootPath}}/images/{{arrow}}'
+            alt=''
+          /><b data-marker-label>{{marker}}</b></div>{{/each}}
+    {{else}}
+      {{#each page.clusters}}<button
+          class='cluster'
+          type='button'
+          data-cluster='{{index}}'
+          style='left:{{left}}%;top:{{top}}%'
+          aria-label='{{date}} {{count}}건 상세 정보'
+        ><span class='cluster__outer'><span class='cluster__middle'><span
+                class='cluster__gradient'
+              ><b>{{count}}</b></span></span></span><img
+            src='{{@root.rootPath}}/images/{{@root.images.clusterPointer}}'
+            alt=''
+          /><strong>{{date}} ({{count}}건)</strong></button>{{/each}}
+    {{/if}}
+  {{/if}}
+</figure>

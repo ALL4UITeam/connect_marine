@@ -1,0 +1,69 @@
+<button
+  class='camera-launcher'
+  type='button'
+  data-camera-open
+  aria-expanded='{{page.cameraOpen}}'
+><img src='{{rootPath}}/images/{{images.camera}}' alt='' />표류물 카메라 추적</button>
+<section class='camera-panel' data-camera-panel hidden aria-label='표류물 카메라 추적'>
+  <header><h2><img src='{{rootPath}}/images/{{images.camera}}' alt='' />표류물 카메라 추적</h2><button
+      type='button'
+      data-camera-close
+      aria-label='카메라 추적 닫기'
+    ><img src='{{rootPath}}/images/{{images.cameraClose}}' alt='' /></button></header>
+  <div class='camera-panel__body'><label class='camera-enabled'><input
+        type='checkbox'
+        checked
+      />표류물 추적하기</label>
+    <div class='camera-target'><button
+        class='camera-target__toggle'
+        type='button'
+        data-target-toggle
+        aria-expanded='{{page.targetOpen}}'
+      ><span><i class='color-dot'></i> 추적 대상 <b data-target-name>예측 표층</b></span><img
+          src='{{rootPath}}/images/{{images.accordionChevron}}'
+          alt=''
+        /></button><div class='camera-target__list' hidden data-target-list>{{#each driftTypes}}<div
+            style='--item-color:{{color}}'
+          ><span><img src='{{@root.rootPath}}/images/{{dot}}' alt='' />{{short}}</span><button
+              type='button'
+              data-target-visible='{{id}}'
+              aria-pressed='true'
+            >표출중</button><button
+              type='button'
+              data-target-select='{{id}}'
+              aria-pressed='{{@first}}'
+            >추적중</button></div>{{/each}}</div></div>
+    <button class='vertical-view' type='button' aria-pressed='true' data-vertical-view>수직으로 보기<img
+        src='{{rootPath}}/images/{{images.selectionCheck}}'
+        alt=''
+      /></button>
+    <label class='camera-slider'><span>좌우 각도<output>18˚</output></span><div
+        class='range-control'
+      ><img
+          class='range-control__static'
+          src='{{rootPath}}/images/{{images.modalSlider}}'
+          alt=''
+        /><input type='range' min='-180' max='180' value='18' data-unit='˚' /></div></label>
+    <label class='camera-slider'><span>상하 각도<output>56˚</output></span><div
+        class='range-control'
+      ><img
+          class='range-control__static'
+          src='{{rootPath}}/images/{{images.modalSlider}}'
+          alt=''
+        /><input type='range' min='0' max='90' value='56' data-unit='˚' /></div></label>
+    <label class='camera-slider'><span>카메라 높이<output>4,000m</output></span><div
+        class='range-control'
+      ><img
+          class='range-control__static'
+          src='{{rootPath}}/images/{{images.modalSlider}}'
+          alt=''
+        /><input
+          type='range'
+          min='500'
+          max='8000'
+          value='4000'
+          step='100'
+          data-unit='m'
+        /></div></label>
+  </div>
+</section>

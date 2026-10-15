@@ -1,0 +1,71 @@
+@use 'variables' as v;
+
+.page-index {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 24px;
+  color: #333;
+  &__header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  &__header h1 {
+    font-size: 22px;
+    font-weight: v.$weight-bold;
+  }
+  &__header p {
+    color: v.color(muted);
+    font-size: 12px;
+  }
+  &__table {
+    overflow-x: auto;
+  }
+  table {
+    width: 100%;
+    min-width: 760px;
+    border-collapse: collapse;
+    text-align: left;
+  }
+  th {
+    padding: 10px 12px;
+    background: #f5f5f5;
+    font-weight: v.$weight-medium;
+    border-block: 1px solid #bbb;
+  }
+  td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  td:first-child {
+    width: 60px;
+    color: v.color(muted);
+  }
+  td:nth-child(2) {
+    width: 130px;
+  }
+  td:nth-child(4) {
+    color: v.color(muted);
+  }
+  td:last-child {
+    width: 260px;
+  }
+  a:hover {
+    color: v.color(primary);
+    text-decoration: underline;
+  }
+}
+@include v.below(700px) {
+  .page-index {
+    padding: 24px 16px;
+    &__header {
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+    &__header h1 {
+      font-size: 20px;
+    }
+  }
+}

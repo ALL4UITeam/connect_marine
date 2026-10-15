@@ -1,0 +1,23 @@
+<main class='page-index'>
+  <header class='page-index__header'>
+    <h1>해양서비스 퍼블리싱 목록</h1>
+    <p>{{screenList.length}}개 화면 · 1920 × 1080</p>
+  </header>
+  <div class='page-index__table'>
+    <table>
+      <caption class='visually-hidden'>화면별 페이지 목록</caption>
+      <thead><tr><th scope='col'>번호</th><th scope='col'>구분</th><th scope='col'>화면명</th><th
+            scope='col'
+          >파일</th></tr></thead>
+      <tbody>
+        {{#each screenList}}
+          <tr>
+            <td>{{number}}</td><td>{{group}}</td>
+            <td><a href='{{@root.rootPath}}{{href}}'>{{title}}</a></td>
+            <td><a href='{{@root.rootPath}}{{href}}'>{{id}}.html</a></td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</main>

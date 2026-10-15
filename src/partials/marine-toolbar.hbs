@@ -1,0 +1,46 @@
+<aside
+  class='map-toolbar {{choose (and (not page.isRoute) page.isResult) "map-toolbar--clusters" ""}}'
+  aria-label='지도 도구'
+>
+  <div class='map-toolbar__tools'>
+    {{#if page.isSupport}}<button
+        type='button'
+        data-layer-toggle
+        aria-expanded='false'
+        aria-label='해양 레이어'
+      ><img src='{{rootPath}}/images/support/layer-tool.svg' alt='' /><span
+        >레이어</span></button>{{/if}}
+    {{#each tools}}
+      {{#if selectable}}
+        <button type='button' data-map-tool='{{id}}' aria-pressed='false'>
+          <img src='{{@root.rootPath}}/images/{{icon}}' alt='' /><span>{{label}}</span>
+        </button>
+      {{else}}
+        <button type='button' data-map-action='{{id}}'>
+          <img src='{{@root.rootPath}}/images/{{icon}}' alt='' /><span>{{label}}</span>
+        </button>
+      {{/if}}
+    {{/each}}
+  </div>
+  <div class='map-zoom'>
+    <button type='button' data-zoom-step='1' aria-label='단계 높이기'>
+      <img src='{{rootPath}}/images/{{images.zoomIn}}' alt='' />
+    </button>
+    <div class='map-zoom__track'>
+      <img src='{{rootPath}}/images/{{images.zoomScale}}' alt='' />
+      <input
+        id='map-zoom-level'
+        aria-label='지도 확대 단계'
+        type='range'
+        min='1'
+        max='10'
+        value='5'
+        data-zoom
+      />
+    </div>
+    <button type='button' data-zoom-step='-1' aria-label='단계 낮추기'>
+      <img src='{{rootPath}}/images/{{images.zoomOut}}' alt='' />
+    </button>
+    <output for='map-zoom-level' data-zoom-output>Lv.5</output>
+  </div>
+</aside>

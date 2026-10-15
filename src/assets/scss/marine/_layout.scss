@@ -1,0 +1,178 @@
+@use 'variables' as v;
+
+.marine-stage {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  min-width: 1280px;
+  height: 100dvh;
+  min-height: 800px;
+  overflow: hidden;
+  background: #00428d;
+}
+.marine-main {
+  position: absolute;
+  inset: 0;
+}
+.marine-header {
+  position: absolute;
+  z-index: 10;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 50px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  overflow: hidden;
+  background: linear-gradient(172.56deg, #0047a7 50.4%, #3088ff 91.9%);
+  &__texture {
+    position: absolute;
+    inset: 0;
+    opacity: 0.4;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  &__texture img {
+    position: absolute;
+    top: -186%;
+    width: 100%;
+    height: 296%;
+    max-width: none;
+  }
+  &__brand {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    white-space: nowrap;
+  }
+  &__brand span {
+    color: v.color(light);
+    font-weight: v.$weight-medium;
+    font-size: 14px;
+    letter-spacing: -0.56px;
+  }
+  &__brand strong {
+    font-size: 20px;
+    font-weight: v.$weight-bold;
+    line-height: 1;
+  }
+  &__divider {
+    transform: rotate(90deg);
+    margin-inline: -7px;
+  }
+  &__wave {
+    position: absolute;
+    left: 283px;
+    top: 5px;
+    pointer-events: none;
+  }
+  &__close {
+    position: relative;
+    display: grid;
+    place-items: center;
+  }
+}
+.marine-sidebar {
+  position: absolute;
+  z-index: 3;
+  top: 50px;
+  bottom: 0;
+  left: 0;
+  width: calc(var(--marine-rail-width) + var(--marine-panel-width));
+  display: flex;
+  background: #01418b;
+  border-radius: 0 16px 0 0;
+  box-shadow: 5px 0 10px #0003;
+}
+.marine-rail {
+  width: var(--marine-rail-width);
+  flex: none;
+  padding-top: 56px;
+  &__item {
+    position: relative;
+    width: 50px;
+    height: 240px;
+    margin-left: 14px;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    line-height: 1.2;
+    font-size: 16px;
+    color: var(--marine-light);
+  }
+  &__item + .marine-rail__item {
+    margin-top: -30px;
+  }
+  &__item--active {
+    z-index: 1;
+    color: #00357d;
+  }
+  &__shape {
+    position: absolute;
+    inset: 0;
+    transform: rotate(180deg);
+  }
+  &__item > span {
+    position: relative;
+    width: 32px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  &__item > span > img {
+    margin-bottom: 8px;
+  }
+}
+.marine-panel {
+  background: white;
+  border-radius: 16px 16px 0 0;
+  width: var(--marine-panel-width);
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.marine-tabs {
+  display: flex;
+  gap: 4px;
+  height: 56px;
+  padding: 0 16px;
+  flex: none;
+  background: v.color(light);
+  a {
+    flex: 1;
+    padding: 0 6px;
+    @include v.flex-center;
+    white-space: nowrap;
+    font-size: 16px;
+    border-bottom: 3px solid transparent;
+  }
+  a.is-active {
+    font-weight: v.$weight-semibold;
+    color: black;
+    border-color: var(--marine-primary);
+  }
+}
+.marine-stage {
+  &--standalone {
+    background: #f5f6f8;
+  }
+}
+.standalone-back {
+  position: absolute;
+  left: 32px;
+  top: 24px;
+  z-index: 22;
+  color: v.color(primary);
+}
+.standalone-reopen {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}

@@ -1,0 +1,67 @@
+<div
+  class="marine-stage support-stage {{choose page.layerOnly 'support-stage--layer-only' ''}}"
+  data-root="{{rootPath}}"
+  data-screen="{{page.id}}"
+  data-layer-open="{{page.layerOpen}}"
+  data-results="{{page.results}}"
+  data-pins="{{page.pins}}"
+  data-detail="{{page.detail}}"
+>
+  {{#unless page.layerOnly}}
+  <main class="marine-main" id="main" aria-label="{{page.title}}">
+    <figure
+      class="map-scene support-map {{choose page.isTraffic 'support-map--traffic' 'support-map--accident'}}"
+    >
+      <img
+        class="map-image"
+        src="{{rootPath}}/images/support/{{page.map}}"
+        alt="{{choose page.isTraffic '속초 해안 교통량 격자 지도' '동해안 해양사고 지도'}}"
+      />
+    </figure>
+    <aside class="marine-sidebar" aria-label="해양업무지원">
+      <nav class="marine-rail" aria-label="서비스 메뉴">
+        <a class="marine-rail__item" href="{{rootPath}}/pages/drift.html"
+          ><img
+            class="marine-rail__shape"
+            src="{{rootPath}}/images/{{images.menuBackground}}"
+            alt=""
+          /><span
+            ><img src="{{rootPath}}/images/support/drift-inactive.svg" alt="" />표류<br />정보</span
+          ></a
+        >
+        <a
+          class="marine-rail__item marine-rail__item--active"
+          href="{{rootPath}}/pages/traffic.html"
+          aria-current="page"
+          ><img
+            class="marine-rail__shape"
+            src="{{rootPath}}/images/{{images.activeMenuBackground}}"
+            alt=""
+          /><span
+            ><img src="{{rootPath}}/images/support/support-active.svg" alt="" /><b
+              >해양<br />업무<br />지원</b
+            ></span
+          ></a
+        >
+      </nav>
+      <div class="marine-panel">
+        <nav class="marine-tabs" aria-label="업무 유형">
+          <a href="{{rootPath}}/pages/traffic.html" class="{{choose page.isTraffic 'is-active' ''}}"
+            >교통정보</a
+          ><a
+            href="{{rootPath}}/pages/accident.html"
+            class="{{choose page.isTraffic '' 'is-active'}}"
+            >사고조회</a
+          >
+        </nav>
+        {{#if page.isTraffic}}{{> support-traffic}}{{else}}{{> support-accident}}{{/if}}
+      </div>
+    </aside>
+    {{> marine-toolbar}} {{#unless page.isTraffic}}{{> support-markers}}{{/unless}}
+  </main>
+  {{> marine-header}} {{else}}<a class="standalone-back" href="{{rootPath}}/list.html"
+    >← 페이지 목록</a
+  ><button class="marine-button standalone-reopen" data-layer-toggle type="button">
+    해양 레이어 열기</button
+  >{{/unless}} {{> support-layers}}
+</div>

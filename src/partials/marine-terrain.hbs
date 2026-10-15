@@ -1,0 +1,78 @@
+<section class='layer-panel' aria-labelledby='terrain-title'>
+  <div class='layer-title'><div><h2 id='terrain-title'><span>LAYER 03</span>지형</h2><p>고도 표현
+        방식 및 행정 구역</p></div></div>
+  <div class='layer-options'><div class='layer-option'><strong>지형 컬러링
+        <b data-switch-state>ON</b></strong><button
+        class='switch'
+        type='button'
+        role='switch'
+        aria-checked='true'
+        aria-label='지형 컬러링'
+        data-layer-switch
+      ><img src='{{rootPath}}/images/{{images.toggleOn}}' alt='' /></button></div><div
+      class='layer-option'
+    ><strong>등고선 <b data-switch-state>OFF</b></strong><button
+        class='switch'
+        type='button'
+        role='switch'
+        aria-checked='false'
+        aria-label='등고선'
+        data-layer-switch
+      ><img src='{{rootPath}}/images/{{images.toggleOff}}' alt='' /></button></div></div>
+  <fieldset><legend>컬러링 적용 범위</legend><div class='segmented' data-single-choice><button
+        type='button'
+        aria-pressed='true'
+      >전체 지형<img src='{{rootPath}}/images/{{images.selectionCheck}}' alt='' /></button><button
+        type='button'
+        aria-pressed='false'
+      >기준 고도 이하</button></div><div class='slider-box'><label><span>기준 고도<output>0m 이하</output></span><div
+          class='range-control'
+        ><img
+            class='range-control__static'
+            src='{{rootPath}}/images/{{images.modalSlider}}'
+            alt=''
+          /><input
+            type='range'
+            min='-100'
+            max='100'
+            value='0'
+            aria-label='기준 고도'
+            data-unit='m 이하'
+          /></div></label><p>슬라이더를 조작하면 '기준 고도 이하' 모드로<br />자동 전환됩니다.</p></div></fieldset>
+  <fieldset><legend>선물 ON/OFF 옵션</legend><div class='layer-options'><div
+        class='layer-option'
+      ><span><strong>건물 <b data-switch-state>ON</b></strong><small>3D 건물 ON/OFF</small></span><button
+          class='switch'
+          type='button'
+          role='switch'
+          aria-checked='true'
+          aria-label='건물'
+          data-layer-switch
+        ><img src='{{rootPath}}/images/{{images.toggleOn}}' alt='' /></button></div><div
+        class='layer-option'
+      ><span><strong>행정구역 <b data-switch-state>ON</b></strong><small>행정구역 시각화</small></span><button
+          class='switch'
+          type='button'
+          role='switch'
+          aria-checked='true'
+          aria-label='행정구역'
+          data-layer-switch
+        ><img
+            src='{{rootPath}}/images/{{images.toggleOn}}'
+            alt=''
+          /></button></div></div></fieldset>
+  <fieldset><legend>지형 과장 옵션</legend><div class='slider-box'><label><span>지형 높이 배율<output
+          >1배</output></span><div class='range-control'><img
+            class='range-control__static'
+            src='{{rootPath}}/images/{{images.modalSlider}}'
+            alt=''
+          /><input
+            type='range'
+            min='0'
+            max='2'
+            step='0.1'
+            value='1'
+            aria-label='지형 높이 배율'
+            data-unit='배'
+          /></div></label></div></fieldset>
+</section>

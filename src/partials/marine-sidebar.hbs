@@ -1,0 +1,43 @@
+<aside class="marine-sidebar" aria-label="표류정보 설정">
+  <nav class="marine-rail" aria-label="서비스 메뉴">
+    <a
+      class="marine-rail__item marine-rail__item--active"
+      href="{{rootPath}}/pages/drift.html"
+      aria-label="표류정보"
+      ><img
+        class="marine-rail__shape"
+        src="{{rootPath}}/images/{{images.activeMenuBackground}}"
+        alt=""
+      /><span
+        ><img src="{{rootPath}}/images/{{images.driftMenu}}" alt="" /><b>표류<br />정보</b></span
+      ></a
+    >
+    <a class="marine-rail__item" href="{{rootPath}}/pages/traffic.html" aria-label="해양 업무 지원">
+      <img
+        class="marine-rail__shape"
+        src="{{rootPath}}/images/{{images.menuBackground}}"
+        alt=""
+      /><span
+        ><img
+          src="{{rootPath}}/images/{{images.supportMenu}}"
+          alt=""
+        />해양<br />업무<br />지원</span
+      >
+    </a>
+  </nav>
+  <div class="marine-panel">
+    <nav class="marine-tabs" aria-label="정보 유형">
+      <a href="{{rootPath}}/pages/drift.html" class="{{choose page.isResult 'is-active' ''}}"
+        >실측·예측결과</a
+      >
+      <a href="{{rootPath}}/pages/ocean.html" class="{{choose page.isOcean 'is-active' ''}}"
+        >해양정보</a
+      >
+      <a href="{{rootPath}}/pages/terrain.html" class="{{choose page.isTerrain 'is-active' ''}}"
+        >지형정보</a
+      >
+    </nav>
+    {{#if page.isResult}}{{> marine-results}}{{/if}} {{#if page.isOcean}}{{> marine-ocean}}{{/if}}
+    {{#if page.isTerrain}}{{> marine-terrain}}{{/if}}
+  </div>
+</aside>

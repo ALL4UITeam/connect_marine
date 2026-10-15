@@ -1,0 +1,237 @@
+@use 'variables' as v;
+
+:root {
+  --check-icon: url('/images/icons/check.svg');
+  @each $name, $value in v.$colors {
+    --marine-#{$name}: #{$value};
+  }
+  --marine-radius: #{v.$radius};
+  --marine-panel-width: #{v.$panel-width};
+  --marine-rail-width: #{v.$rail-width};
+}
+body {
+  margin: 0;
+  font-family: v.$font-family;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--marine-text);
+}
+button,
+input,
+select {
+  font: inherit;
+}
+button {
+  color: inherit;
+}
+button {
+  padding: 0;
+  border: 0;
+  background: none;
+}
+button,
+a,
+input,
+select {
+  outline-offset: 3px;
+}
+:focus-visible {
+  outline: 2px solid v.color(blue);
+}
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+legend {
+  margin-bottom: 6px;
+  padding: 0;
+}
+input[type='checkbox'] {
+  appearance: none;
+  position: relative;
+  flex: 0 0 18px;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  border: 1px solid v.color(border);
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+}
+input[type='checkbox']:checked {
+  background: var(--item-color, var(--marine-primary));
+  border-color: transparent;
+}
+input[type='checkbox']:checked {
+  background-image: var(--check-icon);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  clip-path: inset(50%);
+  overflow: hidden;
+  white-space: nowrap;
+}
+.marine-button {
+  min-height: 36px;
+  min-width: 78px;
+  padding: 0 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--marine-primary);
+  border-radius: 4px;
+  background: var(--marine-primary);
+  color: white;
+  font-size: 15px;
+  font-weight: v.$weight-medium;
+  height: 36px;
+  &:hover {
+    filter: brightness(1.08);
+  }
+  &--outline {
+    background: white;
+    border-color: #9e9e9e;
+    color: #616161;
+  }
+}
+.square-close {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border: 1px solid #0005;
+  border-radius: 4px;
+  background: white;
+  flex: none;
+}
+.segmented {
+  display: flex;
+  gap: 4px;
+  button {
+    @include v.flex-center;
+    position: relative;
+    text-align: center;
+    gap: 8px;
+    flex: 1;
+    height: 32px;
+    padding: 0 24px;
+    background: white;
+    border: 1px solid v.color(border);
+    border-radius: 4px;
+    font-size: 13px;
+  }
+  button[aria-pressed='true'] {
+    background: var(--marine-light);
+    border-color: var(--marine-primary);
+    color: var(--marine-primary);
+    font-weight: v.$weight-bold;
+  }
+  button img {
+    display: none;
+  }
+  button[aria-pressed='true']::after {
+    content: '';
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    background: url('/images/icons/selection-check.svg') center / contain no-repeat;
+    pointer-events: none;
+  }
+}
+.range-control {
+  position: relative;
+  height: 12px;
+  border: 1px solid #b1b8be;
+  border-radius: 100px;
+  background: white;
+  &__static {
+    position: absolute;
+    top: -10px;
+    left: -1px;
+    pointer-events: none;
+  }
+  input {
+    position: absolute;
+    width: 100%;
+    height: 24px;
+    top: -7px;
+    left: 0;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+  &:focus-within {
+    outline: 2px solid #80afef;
+    outline-offset: 4px;
+  }
+  &.is-changed {
+    border: 0;
+  }
+  &.is-changed .range-control__static {
+    display: none;
+  }
+  &.is-changed input {
+    appearance: none;
+    opacity: 1;
+    background: transparent;
+  }
+  &.is-changed input::-webkit-slider-runnable-track {
+    height: 12px;
+    border: 1px solid #b1b8be;
+    border-radius: 100px;
+    background: linear-gradient(
+      to right,
+      #327bf8 0%,
+      #0b46ca var(--progress, 50%),
+      white var(--progress, 50%)
+    );
+  }
+  &.is-changed input::-webkit-slider-thumb {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #0047a7;
+    background: white;
+    border-radius: 50%;
+    margin-top: -4px;
+    box-shadow: 0 2px 4px #0004;
+  }
+  &.is-changed input::-moz-range-track {
+    height: 10px;
+    border: 1px solid #b1b8be;
+    border-radius: 100px;
+    background: white;
+  }
+  &.is-changed input::-moz-range-progress {
+    height: 10px;
+    border-radius: 100px;
+    background: #327bf8;
+  }
+  &.is-changed input::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    border: 2px solid #0047a7;
+    background: white;
+    border-radius: 50%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}

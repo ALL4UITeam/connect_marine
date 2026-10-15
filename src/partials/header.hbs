@@ -1,0 +1,25 @@
+<a class='skip-link' href='#main'>본문 바로가기</a>
+<header class='site-header' data-header>
+  <div class='container site-header__inner'>
+    <a class='brand' href='{{rootPath}}/index.html' aria-label='{{site.name}} 홈'>
+      <span class='brand__symbol' aria-hidden='true'>≈</span>
+      {{site.name}}
+    </a>
+    <button
+      class='menu-toggle'
+      type='button'
+      aria-controls='primary-navigation'
+      aria-expanded='false'
+      hidden
+    >
+      메뉴
+    </button>
+    <nav class='site-nav' id='primary-navigation' aria-label='주 메뉴'>
+      {{#each navigation}}
+        {{#if active}}<a href='{{href}}' aria-current='page'>{{label}}</a>{{else}}<a
+            href='{{href}}'
+          >{{label}}</a>{{/if}}
+      {{/each}}
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,21 @@
+<li class='result-row' data-kind='{{id}}' style='--item-color:{{color}}'>
+  <label class='result-row__selection'><input
+      type='checkbox'
+      checked
+      data-layer-select
+      aria-label='{{label}} 표시'
+    />{{#if depth}}<img src='{{@root.rootPath}}/images/{{dot}}' alt='' />{{/if}}<span><strong
+      >{{label}}</strong>{{#if agency}}<span class='agency-logo'><img
+            src='{{@root.rootPath}}/images/{{@root.images.agency}}'
+            alt='해양수산부'
+          /></span>{{/if}}{{#if detail}}<small>{{detail}}</small>{{/if}}</span></label>
+  <div class='result-row__actions'><button
+      type='button'
+      data-row-play='{{id}}'
+      aria-label='{{label}} 재생'
+    ><img src='{{@root.rootPath}}/images/{{@root.images.rowPlay}}' alt='' /></button><button
+      type='button'
+      data-style-open='{{id}}'
+      aria-label='{{label}} 스타일 수정'
+    ><img src='{{@root.rootPath}}/images/{{@root.images.rowStyle}}' alt='' /></button></div>
+</li>

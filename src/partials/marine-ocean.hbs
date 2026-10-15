@@ -1,0 +1,53 @@
+<section class='layer-panel' aria-labelledby='ocean-title'>
+  <div class='layer-title'><div><h2 id='ocean-title'><span>LAYER 02</span>해양환경</h2><p>파도,
+        바람, 수심별 해류 시각화</p></div></div>
+  <div class='layer-options'>
+    <div class='layer-option'><span><strong>파도 <b data-switch-state>ON</b></strong><small>수면
+          파도 렌더링</small></span><button
+        class='switch'
+        type='button'
+        role='switch'
+        aria-checked='true'
+        aria-label='파도'
+        data-layer-switch
+      ><img src='{{rootPath}}/images/{{images.toggleOn}}' alt='' /></button></div>
+    <div class='layer-option'><span><strong>바람 <b data-switch-state>ON</b></strong><small>수심 위
+          10m 바람</small></span><button
+        class='switch'
+        type='button'
+        role='switch'
+        aria-checked='true'
+        aria-label='바람'
+        data-layer-switch
+      ><img src='{{rootPath}}/images/{{images.toggleOn}}' alt='' /></button></div>
+    <div class='layer-option'><span><strong>해류 화살표 <b data-switch-state>ON</b></strong><small
+        >화살표로 유향 시각화</small></span><button
+        class='switch'
+        type='button'
+        role='switch'
+        aria-checked='true'
+        aria-label='해류 화살표'
+        data-layer-switch
+      ><img src='{{rootPath}}/images/{{images.toggleOn}}' alt='' /></button></div>
+  </div>
+  <fieldset><legend>해류 표현 방식</legend><div class='segmented' data-single-choice><button
+        type='button'
+        aria-pressed='true'
+      >화살표<img src='{{rootPath}}/images/{{images.selectionCheck}}' alt='' /></button><button
+        type='button'
+        aria-pressed='false'
+      >입자</button></div></fieldset>
+  <fieldset><legend>해류 수심 레이어</legend><div class='depth-grid'>{{#each depthLayers}}<label
+        >{{#if checked}}<input type='checkbox' checked />{{else}}<input
+              type='checkbox'
+            />{{/if}}{{depth}}m</label>{{/each}}</div></fieldset>
+  <fieldset><legend>수면 렌더링</legend><div class='layer-option'><strong>물 효과
+        <b data-switch-state>ON</b></strong><button
+        class='switch'
+        type='button'
+        role='switch'
+        aria-checked='true'
+        aria-label='물 효과'
+        data-layer-switch
+      ><img src='{{rootPath}}/images/{{images.toggleOn}}' alt='' /></button></div></fieldset>
+</section>

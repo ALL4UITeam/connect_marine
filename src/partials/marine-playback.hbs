@@ -1,0 +1,31 @@
+<div class='playback-dock'>
+  <section class='playback' aria-label='회차 재생 컨트롤'><div class='playback__top'><div
+        class='playback__left'
+      ><strong class='playback__title'><img
+            src='{{rootPath}}/images/{{page.style.dot}}'
+            alt=''
+          /><span>1회차 재생</span></strong><div class='playback__state'><button
+            type='button'
+            aria-label='재생 시작'
+            aria-pressed='false'
+          ><img src='{{rootPath}}/images/{{images.play}}' alt='' /><span>재생 중</span></button><span
+            class='playback__time'
+          ><b>09:00</b> / 18:00</span></div></div><div
+        class='playback__speeds'
+        aria-label='재생 속도'
+      >{{#each speeds}}<button
+            type='button'
+            data-speed='{{speed}}'
+            aria-pressed='{{active}}'
+          >{{speed}}×</button>{{/each}}</div></div>
+    <div class='range-control range-control--playback'><img
+        class='range-control__static'
+        src='{{rootPath}}/images/{{images.slider}}'
+        alt=''
+      /><input type='range' min='0' max='630' value='90' aria-label='재생 시간' /></div></section>
+  <section class='location-info' aria-label='선택 위치 정보'><header><h2>선택 위치 정보</h2><span
+      >38.20783°N, 128.68612°E</span></header><div class='location-info__grid'><div><h3>파도
+          (파고/방위)</h3><p><b>0.04m/s</b><small>방위 315°</small></p></div><div><h3>바람
+          (풍속/풍향)</h3><p><b>6.23m/s</b><small>방위 153°</small></p></div><div><h3>해류
+          (유속/유향)</h3><p><b>0.09m/s</b><small>유향 북서</small></p></div></div></section>
+</div>

@@ -1,0 +1,25 @@
+<div
+  class="marine-stage {{choose page.standalone 'marine-stage--standalone' ''}}"
+  data-screen="{{page.id}}"
+  data-root="{{rootPath}}"
+  data-modal-initial="{{page.initialModal}}"
+  data-camera-initial="{{page.cameraOpen}}"
+  data-target-initial="{{page.targetOpen}}"
+  data-cluster-initial="{{page.clusterOpen}}"
+  data-playing-initial="{{page.isPlaying}}"
+>
+  {{#if page.standalone}}<a class="standalone-back" href="{{rootPath}}/list.html">← 페이지 목록</a
+  ><button
+    class="marine-button standalone-reopen"
+    type="button"
+    data-style-open="{{page.style.id}}"
+  >
+    스타일 수정 열기</button
+  >{{else}}
+  <main class="marine-main" id="main" aria-label="{{page.title}}">
+    {{> marine-map}}{{> marine-sidebar}}{{> marine-toolbar}}{{#if page.isRoute}}{{>
+    marine-camera}}{{> marine-playback}}{{/if}}{{#if page.isOcean}}{{> marine-legends}}{{/if}}{{#if
+    page.isResult}}{{> marine-poi}}{{/if}}
+  </main>
+  {{> marine-header}} {{/if}} {{> marine-style}}
+</div>

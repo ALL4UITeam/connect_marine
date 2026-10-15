@@ -1,0 +1,38 @@
+@font-face {
+  font-family: 'Pretendard GOV';
+  src:
+    url('/fonts/PretendardGOV-Regular.subset.woff2') format('woff2'),
+    url('/fonts/PretendardGOV-Regular.subset.woff') format('woff');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Pretendard GOV';
+  src:
+    url('/fonts/PretendardGOV-Medium.subset.woff2') format('woff2'),
+    url('/fonts/PretendardGOV-Medium.subset.woff') format('woff');
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Pretendard GOV';
+  src:
+    url('/fonts/PretendardGOV-Bold.subset.woff2') format('woff2'),
+    url('/fonts/PretendardGOV-Bold.subset.woff') format('woff');
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+// 제공된 서브셋에 없는 600 굵기를 가변 폰트로 보완합니다.
+@font-face {
+  font-family: 'Pretendard GOV';
+  src: url('/fonts/PretendardGOVVariable.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}

@@ -1,0 +1,35 @@
+@use 'sass:map';
+
+$font-family: 'Pretendard GOV', 'Malgun Gothic', sans-serif;
+$weight-regular: 400;
+$weight-medium: 500;
+$weight-semibold: 600;
+$weight-bold: 700;
+$panel-width: 340px;
+$rail-width: 64px;
+$radius: 8px;
+$colors: (
+  primary: #0050bc,
+  blue: #3782e8,
+  light: #e6eefa,
+  border: #bdbdbd,
+  text: #424242,
+  muted: #757575,
+  surface: #f7f7f7,
+);
+
+@function color($name) {
+  @return map.get($colors, $name);
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin below($width) {
+  @media (max-width: $width) {
+    @content;
+  }
+}

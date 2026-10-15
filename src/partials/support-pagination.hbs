@@ -1,0 +1,11 @@
+<nav class="support-pagination" aria-label="결과 페이지">
+  <button type="button" data-page-step="-1" aria-label="이전 페이지">
+    <img src="{{rootPath}}/images/support/page-prev.svg" alt="" /></button
+  >{{#each pagination }}<button type="button" data-page="{{this}}">{{this}}</button>{{/each}}<button
+    type="button"
+    data-page-step="1"
+    aria-label="다음 페이지"
+  >
+    <img src="{{rootPath}}/images/support/page-next.svg" alt="" />
+  </button>
+</nav>

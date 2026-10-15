@@ -1,0 +1,68 @@
+<div class="result-panel">
+  <form class="query" data-query aria-labelledby="query-title">
+    <h2 id="query-title">조회조건</h2>
+    <div class="query__box">
+      <div class="query__selects">
+        <label class="select-control"
+          ><span class="visually-hidden">조회 연도</span
+          ><select name="year">
+            <option>2026년</option>
+            <option>2025년</option>
+            <option>2024년</option></select
+          ><img src="{{rootPath}}/images/{{images.selectChevron}}" alt="" /></label
+        ><label class="select-control"
+          ><span class="visually-hidden">조회 월</span
+          ><select name="month">
+            <option value="all">월 전체</option>
+            {{#each months}}
+            <option value="{{this}}">{{this}}월</option>
+            {{/each}}</select
+          ><img src="{{rootPath}}/images/{{images.selectChevron}}" alt=""
+        /></label>
+      </div>
+      <fieldset class="depth-filters">
+        <legend>수심 필터</legend>
+        <div class="segmented">
+          <button type="button" aria-pressed="true" data-depth="surface">
+            표층<img src="{{rootPath}}/images/{{images.selectionCheck}}" alt="" />
+          </button>
+          <button type="button" aria-pressed="true" data-depth="10m">
+            10m<img src="{{rootPath}}/images/{{images.selectionCheck}}" alt="" />
+          </button>
+          <button type="button" aria-pressed="true" data-depth="20m">
+            20m<img src="{{rootPath}}/images/{{images.selectionCheck}}" alt="" />
+          </button>
+        </div>
+      </fieldset>
+      <div class="query__actions">
+        {{#if page.isRoute}}<button
+          class="marine-button marine-button--outline"
+          type="button"
+          data-deselect
+        >
+          선택 해제</button
+        >{{/if}}<button class="marine-button" type="submit">조회</button>
+      </div>
+    </div>
+  </form>
+  <section class="result-list" aria-label="날짜별 조회 결과">
+    {{#each page.days}}
+    <section class="date-result">
+      <button
+        class="date-result__toggle {{choose (and @root.page.isRoute first) 'is-selected' ''}}"
+        type="button"
+        aria-expanded="{{open}}"
+        aria-controls="day-{{index}}"
+      >
+        <span>{{label}} <small>2회차</small>{{#if open}}<em>1선택</em>{{/if}}</span
+        ><img src="{{@root.rootPath}}/images/{{@root.images.accordionChevron}}" alt="" />
+      </button>
+      {{#if open}}
+      <div class="date-result__sets" id="day-{{index}}">{{> marine-sets}}</div>
+      {{else}}
+      <div class="date-result__sets" id="day-{{index}}" hidden>{{> marine-sets}}</div>
+      {{/if}}
+    </section>
+    {{/each}}
+  </section>
+</div>

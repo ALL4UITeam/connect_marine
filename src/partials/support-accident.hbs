@@ -1,0 +1,78 @@
+<form class="accident-query" data-accident-query data-initial-hidden="{{page.results}}">
+  <header class="accident-heading">
+    <h1>해양사고 조회</h1>
+    <p>출처 : 해양교통안전정보시스템</p>
+  </header>
+  <div class="support-scroll accident-filters">
+    <fieldset>
+      <legend>연도 선택</legend>
+      <div class="accident-years">
+        <select name="startYear" aria-label="시작 연도">
+          {{#each years}}
+          <option value="{{this}}">{{this}}년</option>
+          {{/each}}</select
+        ><span>-</span
+        ><select name="endYear" aria-label="종료 연도">
+          <option value="2025">2025년</option>
+          {{#each years}}
+          <option value="{{this}}">{{this}}년</option>
+          {{/each}}
+        </select>
+      </div>
+    </fieldset>
+    {{#each accidentFilters}}
+    <details class="support-filter" data-initial-open="{{and @root.page.filtersOpen open}}">
+      <summary>
+        {{label}}<span data-filter-count></span
+        ><img src="{{@root.rootPath}}/images/support/filter-chevron.svg" alt="" />
+      </summary>
+      <div class="support-filter__options">
+        {{#each options}}<label
+          ><input
+            type="checkbox"
+            name="{{../id}}"
+            value="{{label}}"
+            data-initial-checked="{{and @root.page.filtersOpen checked}}"
+          />{{label}}</label
+        >{{/each}}
+      </div>
+    </details>
+    {{/each}}
+  </div>
+  <footer class="accident-actions">
+    <button class="marine-button marine-button--primary" type="submit">결과조회</button
+    ><button class="marine-button marine-button--outline" type="reset">기본값으로 초기화</button>
+  </footer>
+</form>
+<section
+  class="accident-results"
+  data-accident-results
+  data-initial-hidden="{{not page.results}}"
+  aria-label="사고 조회 결과"
+>
+  <header>
+    <button type="button" data-query-back>
+      <img src="{{rootPath}}/images/support/back.svg" alt="" />사고목록</button
+    ><small>총 <span data-result-count>5</span>건 조회됨</small>
+  </header>
+  <div class="support-scroll accident-table">
+    <div class="support-table-head">
+      <span>사건명</span><span>종류</span><span>인명</span><span>일시</span>
+    </div>
+    {{#each accidentRows}}<button
+      type="button"
+      class="accident-row"
+      data-accident-row="{{index}}"
+      aria-pressed="false"
+    >
+      <span>속초 남방 화물선 화재</span><span>{{kind}}</span
+      ><span><em class="support-badge support-badge--{{tone}}">{{damage}}</em></span
+      ><span>2025-12-03</span></button
+    ><img
+      class="support-table-line"
+      src="{{@root.rootPath}}/images/support/table-line.svg"
+      alt=""
+    />{{/each}}
+  </div>
+  {{> support-pagination}}
+</section>

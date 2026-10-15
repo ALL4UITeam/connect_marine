@@ -1,0 +1,28 @@
+{{#each @root.page.sets}}
+<section class="result-set" data-set="{{number}}">
+  <header class="result-set__heading">
+    <label
+      >{{#if checked}}<input type="checkbox" data-set-select checked />{{else}}<input
+        type="checkbox"
+        data-set-select
+      />{{/if}}<strong>{{number}}회차 실측·예측 세트 / GPS A-8183</strong></label
+    ><button type="button" data-set-play="{{number}}">
+      <img src="{{@root.rootPath}}/images/{{@root.images.setPlay}}" alt="" />세트 재생
+    </button>
+  </header>
+  <div class="result-set__body">
+    <div class="result-set__caption">
+      <span><b>실측</b> 결과 세트 (GPX)</span><small>9시간</small>
+    </div>
+    <ul class="result-set__rows">
+      {{#each rows}}{{> marine-result-row}}{{/each}}
+    </ul>
+    <div class="result-set__caption result-set__caption--prediction">
+      <span><b>예측</b> 예측 정보 (2건:MOHID)</span>
+    </div>
+    <ul class="result-set__rows">
+      {{#each predicted}}{{> marine-result-row}}{{/each}}
+    </ul>
+  </div>
+</section>
+{{/each}}

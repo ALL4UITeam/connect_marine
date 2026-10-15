@@ -1,0 +1,27 @@
+{
+  "singleQuote": true,
+  "trailingComma": "all",
+  "printWidth": 100,
+  "tabWidth": 2,
+  "endOfLine": "lf",
+  "overrides": [
+    {
+      "files": "*.hbs",
+      "options": {
+        "parser": "glimmer"
+      }
+    },
+    {
+      "files": [
+        "marine-screen.hbs",
+        "marine-results.hbs",
+        "marine-sets.hbs",
+        "marine-sidebar.hbs",
+        "support-*.hbs"
+      ],
+      "options": {
+        "parser": "html"
+      }
+    }
+  ]
+}

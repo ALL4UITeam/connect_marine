@@ -1,0 +1,86 @@
+<div class='style-backdrop' data-style-backdrop hidden>
+  <section
+    class='style-dialog'
+    role='dialog'
+    aria-modal='true'
+    aria-labelledby='style-dialog-title'
+    tabindex='-1'
+    data-style-dialog
+    data-style-type='{{page.style.id}}'
+  >
+    <header class='style-dialog__header'><div><p>스타일 수정</p><div
+          class='style-dialog__heading'
+        ><img data-style-dot src='{{rootPath}}/images/{{page.style.dot}}' alt='' /><h2
+            id='style-dialog-title'
+          >{{page.style.name}}</h2><span>2026-01-10</span><small>2회차</small></div></div><button
+        class='square-close'
+        type='button'
+        data-style-close
+        aria-label='스타일 수정 닫기'
+      ><img src='{{rootPath}}/images/{{images.modalClose}}' alt='' /></button></header>
+    <form data-style-form novalidate><div class='style-dialog__body'>
+        <p class='style-notice' style='--item-color:{{page.style.color}}'><img
+            data-style-notice-icon
+            src='{{rootPath}}/images/{{page.style.notice}}'
+            alt=''
+          />원본 데이터는 변경되지 않음</p>
+        <label class='style-field'>표시 명칭 (별칭)<input
+            name='alias'
+            type='text'
+            value='{{page.style.name}}'
+            maxlength='40'
+          /><small>비워두면 원본 명칭 표시</small></label>
+        <fieldset class='style-color'><legend>사용자 지정 색상</legend><div
+            class='style-color__custom'
+          ><input
+              name='color'
+              type='color'
+              value='#299d78'
+              aria-label='사용자 지정 색상 선택'
+            /><input
+              name='hex'
+              type='text'
+              value='#1D9E77'
+              aria-label='색상 HEX 코드'
+              pattern='#[0-9a-fA-F]{6}'
+              maxlength='7'
+            /></div><div class='style-color__palette'>{{#each palette}}<button
+                type='button'
+                data-color='{{color}}'
+                style='background:{{color}}'
+                aria-label='{{color}} 색상'
+                aria-pressed='{{first}}'
+              >{{#if first}}<img
+                    src='{{@root.rootPath}}/images/{{@root.images.selectedColor}}'
+                    alt=''
+                  />{{/if}}</button>{{/each}}</div></fieldset>
+        <div class='style-symbol'><label class='style-symbol__label' for='symbol-size'>심볼 크기<output
+              data-symbol-output
+            >6px</output></label><div class='range-control'><img
+              class='range-control__static'
+              src='{{rootPath}}/images/{{images.modalSlider}}'
+              alt=''
+            /><input
+              id='symbol-size'
+              name='size'
+              type='range'
+              min='2'
+              max='16'
+              value='6'
+              step='2'
+            /></div><div class='style-symbol__options'>{{#each page.style.symbols}}<button
+                type='button'
+                data-symbol-size='{{size}}'
+                aria-pressed='{{selected}}'
+              ><img src='{{@root.rootPath}}/images/{{file}}' alt='' /><span
+                >{{size}}px</span></button>{{/each}}</div></div>
+      </div><footer class='style-dialog__footer'><button
+          class='marine-button marine-button--outline'
+          type='button'
+          data-style-reset
+        >기본값 복원</button><button
+          class='marine-button'
+          type='submit'
+        >완료</button></footer></form>
+  </section>
+</div>

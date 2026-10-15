@@ -1,0 +1,204 @@
+@use 'variables' as v;
+
+.style-backdrop {
+  position: absolute;
+  z-index: 20;
+  inset: 0;
+  @include v.flex-center;
+  padding-top: 55px;
+  background: rgba(0, 0, 0, 0.5);
+}
+.style-dialog {
+  min-height: 0;
+  width: 400px;
+  max-height: calc(100% - 32px);
+  overflow: auto;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 0 10px #0004;
+  &:focus-visible {
+    outline: none;
+  }
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: v.color(surface);
+    padding: 12px 16px;
+    height: 72px;
+  }
+  &__header p {
+    color: #00357d;
+    font-size: 13px;
+    margin-bottom: 2px;
+  }
+  &__heading {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #222;
+    white-space: nowrap;
+  }
+  &__heading h2 {
+    font-size: 17px;
+    font-weight: v.$weight-semibold;
+  }
+  &__heading > span {
+    font-size: 12px;
+    color: #222;
+  }
+  &__heading small {
+    font-size: 11px;
+    background: white;
+    color: v.color(muted);
+    border-radius: 4px;
+    padding: 0 4px;
+    margin-left: -3px;
+  }
+  &__body {
+    min-height: 514px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+.style-notice {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 46px;
+  padding: 12px 16px;
+  border: 1px dashed v.color(border);
+  border-radius: 8px;
+  color: var(--item-color);
+  font-weight: v.$weight-semibold;
+}
+.style-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-weight: v.$weight-medium;
+  input {
+    width: 100%;
+    height: 36px;
+    border: 1px solid v.color(border);
+    border-radius: 4px;
+    padding: 10px;
+    color: v.color(text);
+    font-size: 13px;
+    font-weight: v.$weight-regular;
+  }
+  small {
+    color: v.color(muted);
+    font-weight: v.$weight-regular;
+    font-size: 12px;
+    margin-top: -2px;
+  }
+}
+.style-color {
+  legend {
+    font-weight: v.$weight-medium;
+  }
+  &__custom {
+    display: flex;
+    gap: 8px;
+  }
+  &__custom input {
+    height: 36px;
+    border: 1px solid v.color(border);
+    border-radius: 4px;
+    background: white;
+  }
+  &__custom input[type='color'] {
+    width: 36px;
+    padding: 0;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  &__custom input[type='color']::-webkit-color-swatch-wrapper {
+    padding: 0;
+  }
+  &__custom input[type='color']::-webkit-color-swatch {
+    border: 0;
+  }
+  &__custom input[type='text'] {
+    width: 90px;
+    padding: 10px;
+    color: v.color(text);
+  }
+  &__palette {
+    display: grid;
+    grid-template-columns: repeat(6, 36px);
+    gap: 8px;
+    margin-top: 10px;
+  }
+  &__palette button {
+    position: relative;
+    width: 36px;
+    height: 36px;
+    border-radius: 4px;
+  }
+  &__palette button[aria-pressed='true']:not(:has(img))::after {
+    content: '✓';
+    color: white;
+    font-size: 24px;
+  }
+  &__palette button[aria-pressed='false'] img {
+    visibility: hidden;
+  }
+}
+.style-symbol {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  &__label {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  &__label output {
+    padding: 3px 8px 4px;
+    background: white;
+    border: 1px solid v.color(border);
+    border-radius: 4px;
+    font-weight: v.$weight-semibold;
+  }
+  &__options {
+    margin-top: 5px;
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 8px;
+    background: v.color(surface);
+  }
+  &__options button {
+    width: 36px;
+    height: 42px;
+    @include v.flex-center;
+    flex-direction: column;
+    gap: 3px;
+    font-size: 10px;
+    line-height: 1;
+    border: 1px solid transparent;
+    border-radius: 6px;
+  }
+  &__options button[aria-pressed='true'] {
+    background: white;
+    border-color: #0059d1;
+  }
+}
+.style-dialog {
+  &__footer {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #e0e0e0;
+  }
+}
+.marine-stage {
+  &--standalone .style-backdrop {
+    background: transparent;
+    padding-top: 0;
+  }
+}
