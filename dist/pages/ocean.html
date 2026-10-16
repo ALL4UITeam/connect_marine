@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <meta name='description' content='해양환경 레이어 · 수심 · 범례' />
+    <meta name='theme-color' content='#123e49' />
+    <title>속초 DT | 해양정보</title>    
+    <script type="module" crossorigin src="../assets/modulepreload-polyfill-P2Xu9kJm.js"></script>
+    <script type="module" crossorigin src="../assets/map-toolbar-CYX6lTuw.js"></script>
+    <script type="module" crossorigin src="../assets/marine-BmRvwfSZ.js"></script>
+    <link rel="stylesheet" crossorigin href="../assets/map-toolbar-Cm06Wtwl.css">
+  </head>
+  <body>
+    <div
+      class="marine-stage "
+      data-screen="ocean"
+      data-root=".."
+      data-modal-initial="false"
+      data-camera-initial="false"
+      data-target-initial="false"
+      data-cluster-initial="false"
+      data-playing-initial="false"
+    >
+      
+      <main class="marine-main" id="main" aria-label="해양정보">
+        <figure class='map-scene'><img
+        class='map-image'
+        src='../images/maps/ocean-currents.png'
+        alt='속초 해안 지도'
+      />
+    </figure><aside class="marine-sidebar" aria-label="표류정보 설정">
+      <nav class="marine-rail" aria-label="서비스 메뉴">
+        <a
+          class="marine-rail__item marine-rail__item--active"
+          href="../pages/drift.html"
+          aria-label="표류정보"
+          ><img
+            class="marine-rail__shape"
+            src="../images/backgrounds/service-tab-active.svg"
+            alt=""
+          /><span
+            ><img src="../images/icons/drift-menu.svg" alt="" /><b>표류<br />정보</b></span
+          ></a
+        >
+        <a class="marine-rail__item" href="../pages/traffic.html" aria-label="해양 업무 지원">
+          <img
+            class="marine-rail__shape"
+            src="../images/backgrounds/service-tab.svg"
+            alt=""
+          /><span
+            ><img
+              src="../images/icons/support-menu.svg"
+              alt=""
+            />해양<br />업무<br />지원</span
+          >
+        </a>
+      </nav>
+      <div class="marine-panel">
+        <nav class="marine-tabs" aria-label="정보 유형">
+          <a href="../pages/drift.html" class=""
+            >실측·예측결과</a
+          >
+          <a href="../pages/ocean.html" class="is-active"
+            >해양정보</a
+          >
+          <a href="../pages/terrain.html" class=""
+            >지형정보</a
+          >
+        </nav>
+         <section class='layer-panel' aria-labelledby='ocean-title'>
+      <div class='layer-title'><div><h2 id='ocean-title'><span>LAYER 02</span>해양환경</h2><p>파도,
+            바람, 수심별 해류 시각화</p></div></div>
+      <div class='layer-options'>
+        <div class='layer-option'><span><strong>파도 <b data-switch-state>ON</b></strong><small>수면
+              파도 렌더링</small></span><button
+            class='switch'
+            type='button'
+            role='switch'
+            aria-checked='true'
+            aria-label='파도'
+            data-layer-switch
+          ><img src='../images/icons/toggle-on.svg' alt='' /></button></div>
+        <div class='layer-option'><span><strong>바람 <b data-switch-state>ON</b></strong><small>수심 위
+              10m 바람</small></span><button
+            class='switch'
+            type='button'
+            role='switch'
+            aria-checked='true'
+            aria-label='바람'
+            data-layer-switch
+          ><img src='../images/icons/toggle-on.svg' alt='' /></button></div>
+        <div class='layer-option'><span><strong>해류 화살표 <b data-switch-state>ON</b></strong><small
+            >화살표로 유향 시각화</small></span><button
+            class='switch'
+            type='button'
+            role='switch'
+            aria-checked='true'
+            aria-label='해류 화살표'
+            data-layer-switch
+          ><img src='../images/icons/toggle-on.svg' alt='' /></button></div>
+      </div>
+      <fieldset><legend>해류 표현 방식</legend><div class='segmented' data-single-choice><button
+            type='button'
+            aria-pressed='true'
+          >화살표<img src='../images/icons/selection-check.svg' alt='' /></button><button
+            type='button'
+            aria-pressed='false'
+          >입자</button></div></fieldset>
+      <fieldset><legend>해류 수심 레이어</legend><div class='depth-grid'><label
+            ><input type='checkbox' checked />0m</label><label
+            ><input type='checkbox' checked />10m</label><label
+            ><input
+                  type='checkbox'
+                />20m</label><label
+            ><input
+                  type='checkbox'
+                />40m</label><label
+            ><input
+                  type='checkbox'
+                />60m</label><label
+            ><input
+                  type='checkbox'
+                />80m</label><label
+            ><input
+                  type='checkbox'
+                />100m</label></div></fieldset>
+      <fieldset><legend>수면 렌더링</legend><div class='layer-option'><strong>물 효과
+            <b data-switch-state>ON</b></strong><button
+            class='switch'
+            type='button'
+            role='switch'
+            aria-checked='true'
+            aria-label='물 효과'
+            data-layer-switch
+          ><img src='../images/icons/toggle-on.svg' alt='' /></button></div></fieldset>
+    </section>
+        
+      </div>
+    </aside>
+    <aside
+      class='map-toolbar '
+      aria-label='지도 도구'
+    >
+      <div class='map-toolbar__tools'>
+        
+            <button type='button' data-map-tool='distance' aria-pressed='false'>
+              <img src='../images/icons/measure-distance.svg' alt='' /><span>거리</span>
+            </button>
+            <button type='button' data-map-tool='area' aria-pressed='false'>
+              <img src='../images/icons/measure-area.svg' alt='' /><span>면적</span>
+            </button>
+            <button type='button' data-map-tool='depth' aria-pressed='false'>
+              <img src='../images/icons/measure-depth.svg' alt='' /><span>수심</span>
+            </button>
+            <button type='button' data-map-tool='bearing' aria-pressed='false'>
+              <img src='../images/icons/compass.svg' alt='' /><span>방위</span>
+            </button>
+            <button type='button' data-map-action='overview'>
+              <img src='../images/icons/full-map.svg' alt='' /><span>전체지도</span>
+            </button>
+            <button type='button' data-map-action='reset'>
+              <img src='../images/icons/reset-map.svg' alt='' /><span>초기화</span>
+            </button>
+      </div>
+      <div class='map-zoom'>
+        <button type='button' data-zoom-step='1' aria-label='단계 높이기'>
+          <img src='../images/icons/zoom-in.svg' alt='' />
+        </button>
+        <div class='map-zoom__track'>
+          <img src='../images/icons/zoom-scale.svg' alt='' />
+          <input
+            id='map-zoom-level'
+            aria-label='지도 확대 단계'
+            type='range'
+            min='1'
+            max='10'
+            value='5'
+            data-zoom
+          />
+        </div>
+        <button type='button' data-zoom-step='-1' aria-label='단계 낮추기'>
+          <img src='../images/icons/zoom-out.svg' alt='' />
+        </button>
+        <output for='map-zoom-level' data-zoom-output>Lv.5</output>
+      </div>
+    </aside><aside class='map-legends' aria-label='지도 범례'><section><h2>표층 해류 (0m)</h2><div
+          class='legend-gradient'
+        ></div><p><span>0.03</span><span>0.06</span><span>0.09</span><span>0.11</span><span
+          >0.14</span><span>0.17</span><span>0.20</span></p></section><section><h2>바람 (10m)</h2><div
+          class='legend-gradient legend-gradient--wind'
+        ></div><p><span>0.29</span><span>0.58</span><span>0.87</span><span>1.17</span><span
+          >1.46</span><span>1.75</span><span>2.04</span></p></section></aside>
+      </main>
+      <header class='marine-header'>
+    
+      <a class='marine-header__brand' href='#'><div class='marine-header__logo'><img
+            src='../images/logos/logo.svg'
+            alt='로고'
+          /></div></a>
+      <img class='marine-header__wave' src='../images/backgrounds/header-wave.svg' alt='' />
+      <a
+        class='marine-header__close'
+        href='../list.html'
+        aria-label='해양서비스 닫고 페이지 목록으로 이동'
+      ><img src='../images/icons/header-close.svg' alt='' /></a>
+    </header>  <div class='style-backdrop' data-style-backdrop hidden>
+      <section
+        class='style-dialog'
+        role='dialog'
+        aria-modal='true'
+        aria-labelledby='style-dialog-title'
+        tabindex='-1'
+        data-style-dialog
+        data-style-type='surface'
+      >
+        <header class='style-dialog__header'><div><p>스타일 수정</p><div
+              class='style-dialog__heading'
+            ><img data-style-dot src='../images/markers/surface-dot.svg' alt='' /><h2
+                id='style-dialog-title'
+              >실측 - 표층</h2><span>2026-01-10</span><small>2회차</small></div></div><button
+            class='square-close'
+            type='button'
+            data-style-close
+            aria-label='스타일 수정 닫기'
+          ><img src='../images/icons/modal-close.svg' alt='' /></button></header>
+        <form data-style-form novalidate><div class='style-dialog__body'>
+            <p class='style-notice' style='--item-color:#569300'><img
+                data-style-notice-icon
+                src='../images/icons/surface-notice.svg'
+                alt=''
+              />원본 데이터는 변경되지 않음</p>
+            <label class='style-field'>표시 명칭 (별칭)<input
+                name='alias'
+                type='text'
+                value='실측 - 표층'
+                maxlength='40'
+              /><small>비워두면 원본 명칭 표시</small></label>
+            <fieldset class='style-color'><legend>사용자 지정 색상</legend><div
+                class='style-color__custom'
+              ><input
+                  name='color'
+                  type='color'
+                  value='#299d78'
+                  aria-label='사용자 지정 색상 선택'
+                /><input
+                  name='hex'
+                  type='text'
+                  value='#1D9E77'
+                  aria-label='색상 HEX 코드'
+                  pattern='#[0-9a-fA-F]{6}'
+                  maxlength='7'
+                /></div><div class='style-color__palette'><button
+                    type='button'
+                    data-color='#299d78'
+                    style='background:#299d78'
+                    aria-label='#299d78 색상'
+                    aria-pressed='true'
+                  ><img
+                        src='../images/icons/selected-color.svg'
+                        alt=''
+                      /></button><button
+                    type='button'
+                    data-color='#3c89d8'
+                    style='background:#3c89d8'
+                    aria-label='#3c89d8 색상'
+                    aria-pressed='false'
+                  ></button><button
+                    type='button'
+                    data-color='#7f77d8'
+                    style='background:#7f77d8'
+                    aria-label='#7f77d8 색상'
+                    aria-pressed='false'
+                  ></button><button
+                    type='button'
+                    data-color='#659935'
+                    style='background:#659935'
+                    aria-label='#659935 색상'
+                    aria-pressed='false'
+                  ></button><button
+                    type='button'
+                    data-color='#eda03f'
+                    style='background:#eda03f'
+                    aria-label='#eda03f 색상'
+                    aria-pressed='false'
+                  ></button><button
+                    type='button'
+                    data-color='#de284a'
+                    style='background:#de284a'
+                    aria-label='#de284a 색상'
+                    aria-pressed='false'
+                  ></button><button
+                    type='button'
+                    data-color='#2863e4'
+                    style='background:#2863e4'
+                    aria-label='#2863e4 색상'
+                    aria-pressed='false'
+                  ></button><button
+                    type='button'
+                    data-color='#1e9388'
+                    style='background:#1e9388'
+                    aria-label='#1e9388 색상'
+                    aria-pressed='false'
+                  ></button><button
+                    type='button'
+                    data-color='#d77927'
+                    style='background:#d77927'
+                    aria-label='#d77927 색상'
+                    aria-pressed='false'
+                  ></button><button
+                    type='button'
+                    data-color='#9135e3'
+                    style='background:#9135e3'
+                    aria-label='#9135e3 색상'
+                    aria-pressed='false'
+                  ></button><button
+                    type='button'
+                    data-color='#1b90af'
+                    style='background:#1b90af'
+                    aria-label='#1b90af 색상'
+                    aria-pressed='false'
+                  ></button><button
+                    type='button'
+                    data-color='#475568'
+                    style='background:#475568'
+                    aria-label='#475568 색상'
+                    aria-pressed='false'
+                  ></button></div></fieldset>
+            <div class='style-symbol'><label class='style-symbol__label' for='symbol-size'>심볼 크기<output
+                  data-symbol-output
+                >6px</output></label><div class='range-control'><img
+                  class='range-control__static'
+                  src='../images/controls/settings-slider-fill.svg'
+                  alt=''
+                /><input
+                  id='symbol-size'
+                  name='size'
+                  type='range'
+                  min='2'
+                  max='16'
+                  value='6'
+                  step='2'
+                /></div><div class='style-symbol__options'><button
+                    type='button'
+                    data-symbol-size='2'
+                    aria-pressed='false'
+                  ><img src='../images/markers/symbol-2px.svg' alt='' /><span
+                    >2px</span></button><button
+                    type='button'
+                    data-symbol-size='4'
+                    aria-pressed='false'
+                  ><img src='../images/markers/symbol-4px.svg' alt='' /><span
+                    >4px</span></button><button
+                    type='button'
+                    data-symbol-size='6'
+                    aria-pressed='true'
+                  ><img src='../images/markers/symbol-6px.svg' alt='' /><span
+                    >6px</span></button><button
+                    type='button'
+                    data-symbol-size='8'
+                    aria-pressed='false'
+                  ><img src='../images/markers/symbol-8px.svg' alt='' /><span
+                    >8px</span></button><button
+                    type='button'
+                    data-symbol-size='10'
+                    aria-pressed='false'
+                  ><img src='../images/markers/symbol-10px.svg' alt='' /><span
+                    >10px</span></button><button
+                    type='button'
+                    data-symbol-size='12'
+                    aria-pressed='false'
+                  ><img src='../images/markers/symbol-12px.svg' alt='' /><span
+                    >12px</span></button><button
+                    type='button'
+                    data-symbol-size='16'
+                    aria-pressed='false'
+                  ><img src='../images/markers/symbol-16px.svg' alt='' /><span
+                    >16px</span></button></div></div>
+          </div><footer class='style-dialog__footer'><button
+              class='marine-button marine-button--outline'
+              type='button'
+              data-style-reset
+            >기본값 복원</button><button
+              class='marine-button'
+              type='submit'
+            >완료</button></footer></form>
+      </section>
+    </div>
+    </div>
+  </body>
+</html>

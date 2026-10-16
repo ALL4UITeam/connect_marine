@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <meta name='description' content='' />
+    <meta name='theme-color' content='#123e49' />
+    <title>속초 DT | 교통정보 — 해양 레이어 | 속초시 해양서비스</title>    
+    <script type="module" crossorigin src="../assets/modulepreload-polyfill-P2Xu9kJm.js"></script>
+    <script type="module" crossorigin src="../assets/map-toolbar-CYX6lTuw.js"></script>
+    <script type="module" crossorigin src="../assets/support--8_lnD9u.js"></script>
+    <link rel="stylesheet" crossorigin href="../assets/map-toolbar-Cm06Wtwl.css">
+  </head>
+  <body>
+    <div
+      class="marine-stage support-stage "
+      data-root=".."
+      data-screen="traffic-layers"
+      data-layer-open="true"
+      data-results="false"
+      data-pins="false"
+      data-detail="false"
+    >
+      <main class="marine-main" id="main" aria-label="교통정보 — 해양 레이어 | 속초시 해양서비스">
+        <figure
+          class="map-scene support-map support-map--traffic"
+        >
+          <img
+            class="map-image"
+            src="../images/support/traffic-layers-map.png"
+            alt="속초 해안 교통량 격자 지도"
+          />
+        </figure>
+        <aside class="marine-sidebar" aria-label="해양업무지원">
+          <nav class="marine-rail" aria-label="서비스 메뉴">
+            <a class="marine-rail__item" href="../pages/drift.html"
+              ><img
+                class="marine-rail__shape"
+                src="../images/backgrounds/service-tab.svg"
+                alt=""
+              /><span
+                ><img src="../images/support/drift-inactive.svg" alt="" />표류<br />정보</span
+              ></a
+            >
+            <a
+              class="marine-rail__item marine-rail__item--active"
+              href="../pages/traffic.html"
+              aria-current="page"
+              ><img
+                class="marine-rail__shape"
+                src="../images/backgrounds/service-tab-active.svg"
+                alt=""
+              /><span
+                ><img src="../images/support/support-active.svg" alt="" /><b
+                  >해양<br />업무<br />지원</b
+                ></span
+              ></a
+            >
+          </nav>
+          <div class="marine-panel">
+            <nav class="marine-tabs" aria-label="업무 유형">
+              <a href="../pages/traffic.html" class="is-active"
+                >교통정보</a
+              ><a
+                href="../pages/accident.html"
+                class=""
+                >사고조회</a
+              >
+            </nav>
+            <header class="traffic-heading">
+      <div>
+        <span>TRAFFIC GRID STATS</span>
+        <h1>그리드별 통계</h1>
+      </div>
+      <small>8개 격자</small>
+    </header>
+    <div class="support-scroll traffic-table">
+      <div class="support-table-head">
+        <span>격자번호</span><span>좌표(위경도)</span><span>교통량</span><span>밀집도</span>
+      </div>
+      <button
+        type="button"
+        class="traffic-row "
+        data-grid="C1"
+        aria-pressed="false"
+      >
+        <span><i class="traffic-hot">C1</i></span
+        ><span>38.210°N, 128.580°E</span><span><b>14</b> 척</span
+        ><span><em class="support-badge support-badge--danger">88%</em></span></button
+      ><img
+        class="support-table-line"
+        src="../images/support/table-line.svg"
+        alt=""
+      /><button
+        type="button"
+        class="traffic-row "
+        data-grid="C2"
+        aria-pressed="false"
+      >
+        <span><i class="">C2</i></span
+        ><span>38.210°N, 128.580°E</span><span><b>9</b> 척</span
+        ><span><em class="support-badge support-badge--warning">56%</em></span></button
+      ><img
+        class="support-table-line"
+        src="../images/support/table-line.svg"
+        alt=""
+      /><button
+        type="button"
+        class="traffic-row is-selected"
+        data-grid="C3"
+        aria-pressed="true"
+      >
+        <span><i class="traffic-hot">C3</i></span
+        ><span>38.210°N, 128.580°E</span><span><b>18</b> 척</span
+        ><span><em class="support-badge support-badge--danger">95%</em></span></button
+      ><img
+        class="support-table-line"
+        src="../images/support/table-line.svg"
+        alt=""
+      /><button
+        type="button"
+        class="traffic-row "
+        data-grid="C4"
+        aria-pressed="false"
+      >
+        <span><i class="traffic-hot">C4</i></span
+        ><span>38.210°N, 128.580°E</span><span><b>12</b> 척</span
+        ><span><em class="support-badge support-badge--warning">70%</em></span></button
+      ><img
+        class="support-table-line"
+        src="../images/support/table-line.svg"
+        alt=""
+      /><button
+        type="button"
+        class="traffic-row "
+        data-grid="C5"
+        aria-pressed="false"
+      >
+        <span><i class="">C5</i></span
+        ><span>38.210°N, 128.580°E</span><span><b>6</b> 척</span
+        ><span><em class="support-badge support-badge--success">38%</em></span></button
+      ><img
+        class="support-table-line"
+        src="../images/support/table-line.svg"
+        alt=""
+      /><button
+        type="button"
+        class="traffic-row "
+        data-grid="C6"
+        aria-pressed="false"
+      >
+        <span><i class="">C6</i></span
+        ><span>38.210°N, 128.580°E</span><span><b>4</b> 척</span
+        ><span><em class="support-badge support-badge--success">25%</em></span></button
+      ><img
+        class="support-table-line"
+        src="../images/support/table-line.svg"
+        alt=""
+      /><button
+        type="button"
+        class="traffic-row "
+        data-grid="C7"
+        aria-pressed="false"
+      >
+        <span><i class="">C7</i></span
+        ><span>38.210°N, 128.580°E</span><span><b>8</b> 척</span
+        ><span><em class="support-badge support-badge--warning">50%</em></span></button
+      ><img
+        class="support-table-line"
+        src="../images/support/table-line.svg"
+        alt=""
+      /><button
+        type="button"
+        class="traffic-row "
+        data-grid="C8"
+        aria-pressed="false"
+      >
+        <span><i class="">C8</i></span
+        ><span>38.210°N, 128.580°E</span><span><b>3</b> 척</span
+        ><span><em class="support-badge support-badge--success">19%</em></span></button
+      ><img
+        class="support-table-line"
+        src="../images/support/table-line.svg"
+        alt=""
+      />
+    </div>
+    <nav class="support-pagination" aria-label="결과 페이지">
+      <button type="button" data-page-step="-1" aria-label="이전 페이지">
+        <img src="../images/support/page-prev.svg" alt="" /></button
+      ><button type="button" data-page="1">1</button><button type="button" data-page="2">2</button><button type="button" data-page="3">3</button><button type="button" data-page="4">4</button><button type="button" data-page="5">5</button><button
+        type="button"
+        data-page-step="1"
+        aria-label="다음 페이지"
+      >
+        <img src="../images/support/page-next.svg" alt="" />
+      </button>
+    </nav>
+    
+          </div>
+        </aside>
+        <aside
+      class='map-toolbar '
+      aria-label='지도 도구'
+    >
+      <div class='map-toolbar__tools'>
+        <button
+            type='button'
+            data-layer-toggle
+            aria-expanded='false'
+            aria-label='해양 레이어'
+          ><img src='../images/support/layer-tool.svg' alt='' /><span
+            >레이어</span></button>
+            <button type='button' data-map-tool='distance' aria-pressed='false'>
+              <img src='../images/icons/measure-distance.svg' alt='' /><span>거리</span>
+            </button>
+            <button type='button' data-map-tool='area' aria-pressed='false'>
+              <img src='../images/icons/measure-area.svg' alt='' /><span>면적</span>
+            </button>
+            <button type='button' data-map-tool='depth' aria-pressed='false'>
+              <img src='../images/icons/measure-depth.svg' alt='' /><span>수심</span>
+            </button>
+            <button type='button' data-map-tool='bearing' aria-pressed='false'>
+              <img src='../images/icons/compass.svg' alt='' /><span>방위</span>
+            </button>
+            <button type='button' data-map-action='overview'>
+              <img src='../images/icons/full-map.svg' alt='' /><span>전체지도</span>
+            </button>
+            <button type='button' data-map-action='reset'>
+              <img src='../images/icons/reset-map.svg' alt='' /><span>초기화</span>
+            </button>
+      </div>
+      <div class='map-zoom'>
+        <button type='button' data-zoom-step='1' aria-label='단계 높이기'>
+          <img src='../images/icons/zoom-in.svg' alt='' />
+        </button>
+        <div class='map-zoom__track'>
+          <img src='../images/icons/zoom-scale.svg' alt='' />
+          <input
+            id='map-zoom-level'
+            aria-label='지도 확대 단계'
+            type='range'
+            min='1'
+            max='10'
+            value='5'
+            data-zoom
+          />
+        </div>
+        <button type='button' data-zoom-step='-1' aria-label='단계 낮추기'>
+          <img src='../images/icons/zoom-out.svg' alt='' />
+        </button>
+        <output for='map-zoom-level' data-zoom-output>Lv.5</output>
+      </div>
+    </aside> 
+      </main>
+      <header class='marine-header'>
+    
+      <a class='marine-header__brand' href='#'><div class='marine-header__logo'><img
+            src='../images/logos/logo.svg'
+            alt='로고'
+          /></div></a>
+      <img class='marine-header__wave' src='../images/backgrounds/header-wave.svg' alt='' />
+      <a
+        class='marine-header__close'
+        href='../list.html'
+        aria-label='해양서비스 닫고 페이지 목록으로 이동'
+      ><img src='../images/icons/header-close.svg' alt='' /></a>
+    </header>  <section
+      class="support-layers"
+      data-layer-panel
+      role="dialog"
+      aria-labelledby="layer-title"
+      tabindex="-1"
+      data-initial-hidden="false"
+    >
+      <header>
+        <h2 id="layer-title">해양 레이어 <span data-layer-count></span></h2>
+        <button type="button" data-layer-close aria-label="해양 레이어 닫기">
+          <img src="../images/support/layer-close.svg" alt="" />
+        </button>
+      </header>
+      <div class="support-layers__body">
+        <details class="layer-category" data-initial-open="true">
+          <summary>
+            향해지원 <span data-layer-count></span
+            ><img class="layer-expand" src="../images/support/expand.svg" alt="" /><img
+              class="layer-collapse"
+              src="../images/support/collapse.svg"
+              alt=""
+            />
+          </summary>
+          <div class="layer-groups">
+            <section>
+              <h3>항로표지</h3>
+              <div>
+                <label
+                  ><input
+                    type="checkbox"
+                    data-support-layer
+                    value="고정표지"
+                    data-initial-checked="false"
+                  /><img
+                    src="../images/support/layer-circle.svg"
+                    alt=""
+                  /><span>고정표지</span></label
+                ><label
+                  ><input
+                    type="checkbox"
+                    data-support-layer
+                    value="이동표지"
+                    data-initial-checked="false"
+                  /><img
+                    src="../images/support/layer-line.svg"
+                    alt=""
+                  /><span>이동표지</span></label
+                ><label
+                  ><input
+                    type="checkbox"
+                    data-support-layer
+                    value="교량등"
+                    data-initial-checked="false"
+                  /><img
+                    src="../images/support/layer-circle.svg"
+                    alt=""
+                  /><span>교량등</span></label
+                ><label
+                  ><input
+                    type="checkbox"
+                    data-support-layer
+                    value="레이콘"
+                    data-initial-checked="false"
+                  /><i class="layer-square"></i><span>레이콘</span></label
+                ><label
+                  ><input
+                    type="checkbox"
+                    data-support-layer
+                    value="AIS"
+                    data-initial-checked="false"
+                  /><img
+                    src="../images/support/layer-circle.svg"
+                    alt=""
+                  /><span>AIS</span></label
+                >
+              </div>
+            </section>
+            <section>
+              <h3>이상물체</h3>
+              <div>
+                <label
+                  ><input
+                    type="checkbox"
+                    data-support-layer
+                    value="간출암·암암·세암"
+                    data-initial-checked="false"
+                  /><img
+                    src="../images/support/layer-circle.svg"
+                    alt=""
+                  /><span>간출암·암암·세암</span></label
+                ><label
+                  ><input
+                    type="checkbox"
+                    data-support-layer
+                    value="노출암"
+                    data-initial-checked="false"
+                  /><img
+                    src="../images/support/layer-circle.svg"
+                    alt=""
+                  /><span>노출암</span></label
+                ><label
+                  ><input
+                    type="checkbox"
+                    data-support-layer
+                    value="어초"
+                    data-initial-checked="false"
+                  /><img
+                    src="../images/support/layer-circle.svg"
+                    alt=""
+                  /><span>어초</span></label
+                >
+              </div>
+            </section>
+            <section>
+              <h3>해상교통</h3>
+              <div>
+                <label
+                  ><input
+                    type="checkbox"
+                    data-support-layer
+                    value="정박지_법령"
+                    data-initial-checked="false"
+                  /><img
+                    src="../images/support/layer-circle.svg"
+                    alt=""
+                  /><span>정박지_법령</span></label
+                ><label
+                  ><input
+                    type="checkbox"
+                    data-support-layer
+                    value="양길항로부"
+                    data-initial-checked="false"
+                  /><i class="layer-square"></i><span>양길항로부</span></label
+                ><label
+                  ><input
+                    type="checkbox"
+                    data-support-layer
+                    value="진입금지"
+                    data-initial-checked="false"
+                  /><i class="layer-square"></i><span>진입금지</span></label
+                >
+              </div>
+            </section>
+            <section>
+              <h3>금지해역</h3>
+              <div>
+                <label
+                  ><input
+                    type="checkbox"
+                    data-support-layer
+                    value="수중레저활동금지구역"
+                    data-initial-checked="false"
+                  /><i class="layer-square"></i><span>수중레저활동금지구역</span></label
+                >
+              </div>
+            </section>
+          </div>
+        </details>
+        <details class="layer-category layer-category--secondary">
+          <summary>
+            항만경계<span data-layer-count></span
+            ><img class="layer-expand" src="../images/support/expand.svg" alt="" /><img
+              class="layer-collapse"
+              src="../images/support/collapse.svg"
+              alt=""
+            />
+          </summary>
+          <div class="layer-extra">
+            <label><input type="checkbox" data-support-layer value="항만경계" />항만경계</label>
+          </div>
+        </details>
+        <details class="layer-category layer-category--secondary">
+          <summary>
+            업무지원(인허가관련)<span data-layer-count></span
+            ><img class="layer-expand" src="../images/support/expand.svg" alt="" /><img
+              class="layer-collapse"
+              src="../images/support/collapse.svg"
+              alt=""
+            />
+          </summary>
+          <div class="layer-extra">
+            <label><input type="checkbox" data-support-layer value="업무지원(인허가관련)" />업무지원(인허가관련)</label>
+          </div>
+        </details>
+        <details class="layer-category layer-category--secondary">
+          <summary>
+            종합지도<span data-layer-count></span
+            ><img class="layer-expand" src="../images/support/expand.svg" alt="" /><img
+              class="layer-collapse"
+              src="../images/support/collapse.svg"
+              alt=""
+            />
+          </summary>
+          <div class="layer-extra">
+            <label><input type="checkbox" data-support-layer value="종합지도" />종합지도</label>
+          </div>
+        </details>
+        <div class="layer-chips" data-layer-chips hidden>
+          <button type="button" data-layer-reset aria-label="레이어 선택 초기화">
+            <img src="../images/support/layer-reset.svg" alt="" />
+          </button>
+          <div data-layer-chip-list></div>
+        </div>
+      </div>
+    </section>
+    
+    </div>
+  </body>
+</html>

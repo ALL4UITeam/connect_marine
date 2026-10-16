@@ -1,0 +1,849 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <meta name='description' content='' />
+    <meta name='theme-color' content='#123e49' />
+    <title>속초 DT | 해양사고 — 목록 선택 | 속초시 해양서비스</title>    
+    <script type="module" crossorigin src="../assets/modulepreload-polyfill-P2Xu9kJm.js"></script>
+    <script type="module" crossorigin src="../assets/map-toolbar-CYX6lTuw.js"></script>
+    <script type="module" crossorigin src="../assets/support--8_lnD9u.js"></script>
+    <link rel="stylesheet" crossorigin href="../assets/map-toolbar-Cm06Wtwl.css">
+  </head>
+  <body>
+    <div
+      class="marine-stage support-stage "
+      data-root=".."
+      data-screen="accident-selected"
+      data-layer-open="false"
+      data-results="true"
+      data-pins="true"
+      data-detail="false"
+    >
+      <main class="marine-main" id="main" aria-label="해양사고 — 목록 선택 | 속초시 해양서비스">
+        <figure
+          class="map-scene support-map support-map--accident"
+        >
+          <img
+            class="map-image"
+            src="../images/support/accident-results-map.png"
+            alt="동해안 해양사고 지도"
+          />
+        </figure>
+        <aside class="marine-sidebar" aria-label="해양업무지원">
+          <nav class="marine-rail" aria-label="서비스 메뉴">
+            <a class="marine-rail__item" href="../pages/drift.html"
+              ><img
+                class="marine-rail__shape"
+                src="../images/backgrounds/service-tab.svg"
+                alt=""
+              /><span
+                ><img src="../images/support/drift-inactive.svg" alt="" />표류<br />정보</span
+              ></a
+            >
+            <a
+              class="marine-rail__item marine-rail__item--active"
+              href="../pages/traffic.html"
+              aria-current="page"
+              ><img
+                class="marine-rail__shape"
+                src="../images/backgrounds/service-tab-active.svg"
+                alt=""
+              /><span
+                ><img src="../images/support/support-active.svg" alt="" /><b
+                  >해양<br />업무<br />지원</b
+                ></span
+              ></a
+            >
+          </nav>
+          <div class="marine-panel">
+            <nav class="marine-tabs" aria-label="업무 유형">
+              <a href="../pages/traffic.html" class=""
+                >교통정보</a
+              ><a
+                href="../pages/accident.html"
+                class="is-active"
+                >사고조회</a
+              >
+            </nav>
+            <form class="accident-query" data-accident-query data-initial-hidden="true">
+      <header class="accident-heading">
+        <h1>해양사고 조회</h1>
+        <p>출처 : 해양교통안전정보시스템</p>
+      </header>
+      <div class="support-scroll accident-filters">
+        <fieldset>
+          <legend>연도 선택</legend>
+          <div class="accident-years">
+            <select name="startYear" aria-label="시작 연도">
+              <option value="2017">2017년</option>
+                        <option value="2018">2018년</option>
+                        <option value="2019">2019년</option>
+                        <option value="2020">2020년</option>
+                        <option value="2021">2021년</option>
+                        <option value="2022">2022년</option>
+                        <option value="2023">2023년</option>
+                        <option value="2024">2024년</option>
+                        <option value="2025">2025년</option>
+                        <option value="2026">2026년</option>
+              </select
+            ><span>-</span
+            ><select name="endYear" aria-label="종료 연도">
+              <option value="2025">2025년</option>
+              <option value="2017">2017년</option>
+              <option value="2018">2018년</option>
+              <option value="2019">2019년</option>
+              <option value="2020">2020년</option>
+              <option value="2021">2021년</option>
+              <option value="2022">2022년</option>
+              <option value="2023">2023년</option>
+              <option value="2024">2024년</option>
+              <option value="2025">2025년</option>
+              <option value="2026">2026년</option>
+            </select>
+          </div>
+        </fieldset>
+        <details class="support-filter" data-initial-open="false">
+          <summary>
+            사고종류<span data-filter-count></span
+            ><img src="../images/support/filter-chevron.svg" alt="" />
+          </summary>
+          <div class="support-filter__options">
+            <label
+              ><input
+                type="checkbox"
+                name="kind"
+                value="전체"
+                data-initial-checked="false"
+              />전체</label
+            ><label
+              ><input
+                type="checkbox"
+                name="kind"
+                value="충돌"
+                data-initial-checked="false"
+              />충돌</label
+            ><label
+              ><input
+                type="checkbox"
+                name="kind"
+                value="전복"
+                data-initial-checked="false"
+              />전복</label
+            ><label
+              ><input
+                type="checkbox"
+                name="kind"
+                value="침몰"
+                data-initial-checked="false"
+              />침몰</label
+            ><label
+              ><input
+                type="checkbox"
+                name="kind"
+                value="화재·폭발"
+                data-initial-checked="false"
+              />화재·폭발</label
+            ><label
+              ><input
+                type="checkbox"
+                name="kind"
+                value="안전사고"
+                data-initial-checked="false"
+              />안전사고</label
+            >
+          </div>
+        </details>
+        <details class="support-filter" data-initial-open="false">
+          <summary>
+            인명피해<span data-filter-count></span
+            ><img src="../images/support/filter-chevron.svg" alt="" />
+          </summary>
+          <div class="support-filter__options">
+            <label
+              ><input
+                type="checkbox"
+                name="damage"
+                value="전체"
+                data-initial-checked="false"
+              />전체</label
+            ><label
+              ><input
+                type="checkbox"
+                name="damage"
+                value="사망"
+                data-initial-checked="false"
+              />사망</label
+            ><label
+              ><input
+                type="checkbox"
+                name="damage"
+                value="실종"
+                data-initial-checked="false"
+              />실종</label
+            ><label
+              ><input
+                type="checkbox"
+                name="damage"
+                value="부상"
+                data-initial-checked="false"
+              />부상</label
+            >
+          </div>
+        </details>
+        <details class="support-filter" data-initial-open="false">
+          <summary>
+            톤수별<span data-filter-count></span
+            ><img src="../images/support/filter-chevron.svg" alt="" />
+          </summary>
+          <div class="support-filter__options">
+            <label
+              ><input
+                type="checkbox"
+                name="tonnage"
+                value="전체"
+                data-initial-checked="false"
+              />전체</label
+            ><label
+              ><input
+                type="checkbox"
+                name="tonnage"
+                value="20톤 미만"
+                data-initial-checked="false"
+              />20톤 미만</label
+            ><label
+              ><input
+                type="checkbox"
+                name="tonnage"
+                value="20~100톤"
+                data-initial-checked="false"
+              />20~100톤</label
+            ><label
+              ><input
+                type="checkbox"
+                name="tonnage"
+                value="100~500톤"
+                data-initial-checked="false"
+              />100~500톤</label
+            ><label
+              ><input
+                type="checkbox"
+                name="tonnage"
+                value="500톤 이상"
+                data-initial-checked="false"
+              />500톤 이상</label
+            >
+          </div>
+        </details>
+        <details class="support-filter" data-initial-open="false">
+          <summary>
+            선박용도<span data-filter-count></span
+            ><img src="../images/support/filter-chevron.svg" alt="" />
+          </summary>
+          <div class="support-filter__options">
+            <label
+              ><input
+                type="checkbox"
+                name="purpose"
+                value="전체"
+                data-initial-checked="false"
+              />전체</label
+            ><label
+              ><input
+                type="checkbox"
+                name="purpose"
+                value="어선"
+                data-initial-checked="false"
+              />어선</label
+            ><label
+              ><input
+                type="checkbox"
+                name="purpose"
+                value="화물선"
+                data-initial-checked="false"
+              />화물선</label
+            ><label
+              ><input
+                type="checkbox"
+                name="purpose"
+                value="여객선"
+                data-initial-checked="false"
+              />여객선</label
+            ><label
+              ><input
+                type="checkbox"
+                name="purpose"
+                value="기타"
+                data-initial-checked="false"
+              />기타</label
+            >
+          </div>
+        </details>
+      </div>
+      <footer class="accident-actions">
+        <button class="marine-button marine-button--primary" type="submit">결과조회</button
+        ><button class="marine-button marine-button--outline" type="reset">기본값으로 초기화</button>
+      </footer>
+    </form>
+    <section
+      class="accident-results"
+      data-accident-results
+      data-initial-hidden="false"
+      aria-label="사고 조회 결과"
+    >
+      <header>
+        <button type="button" data-query-back>
+          <img src="../images/support/back.svg" alt="" />사고목록</button
+        ><small>총 <span data-result-count>5</span>건 조회됨</small>
+      </header>
+      <div class="support-scroll accident-table">
+        <div class="support-table-head">
+          <span>사건명</span><span>종류</span><span>인명</span><span>일시</span>
+        </div>
+        <button
+          type="button"
+          class="accident-row"
+          data-accident-row="0"
+          aria-pressed="false"
+        >
+          <span>속초 남방 화물선 화재</span><span>화재·폭발</span
+          ><span><em class="support-badge support-badge--danger">사망 1</em></span
+          ><span>2025-12-03</span></button
+        ><img
+          class="support-table-line"
+          src="../images/support/table-line.svg"
+          alt=""
+        /><button
+          type="button"
+          class="accident-row"
+          data-accident-row="1"
+          aria-pressed="false"
+        >
+          <span>속초 남방 화물선 화재</span><span>해양오염</span
+          ><span><em class="support-badge support-badge--">-</em></span
+          ><span>2025-12-03</span></button
+        ><img
+          class="support-table-line"
+          src="../images/support/table-line.svg"
+          alt=""
+        /><button
+          type="button"
+          class="accident-row"
+          data-accident-row="2"
+          aria-pressed="false"
+        >
+          <span>속초 남방 화물선 화재</span><span>화재·폭발</span
+          ><span><em class="support-badge support-badge--neutral">실종 1</em></span
+          ><span>2025-12-03</span></button
+        ><img
+          class="support-table-line"
+          src="../images/support/table-line.svg"
+          alt=""
+        /><button
+          type="button"
+          class="accident-row"
+          data-accident-row="3"
+          aria-pressed="false"
+        >
+          <span>속초 남방 화물선 화재</span><span>화재·폭발</span
+          ><span><em class="support-badge support-badge--warning">부상 1</em></span
+          ><span>2025-12-03</span></button
+        ><img
+          class="support-table-line"
+          src="../images/support/table-line.svg"
+          alt=""
+        /><button
+          type="button"
+          class="accident-row"
+          data-accident-row="4"
+          aria-pressed="false"
+        >
+          <span>속초 남방 화물선 화재</span><span>화재·폭발</span
+          ><span><em class="support-badge support-badge--info">기타 1</em></span
+          ><span>2025-12-03</span></button
+        ><img
+          class="support-table-line"
+          src="../images/support/table-line.svg"
+          alt=""
+        />
+      </div>
+      <nav class="support-pagination" aria-label="결과 페이지">
+        <button type="button" data-page-step="-1" aria-label="이전 페이지">
+          <img src="../images/support/page-prev.svg" alt="" /></button
+        ><button type="button" data-page="1">1</button><button type="button" data-page="2">2</button><button type="button" data-page="3">3</button><button type="button" data-page="4">4</button><button type="button" data-page="5">5</button><button
+          type="button"
+          data-page-step="1"
+          aria-label="다음 페이지"
+        >
+          <img src="../images/support/page-next.svg" alt="" />
+        </button>
+      </nav>
+    </section>
+    
+          </div>
+        </aside>
+        <aside
+      class='map-toolbar '
+      aria-label='지도 도구'
+    >
+      <div class='map-toolbar__tools'>
+        <button
+            type='button'
+            data-layer-toggle
+            aria-expanded='false'
+            aria-label='해양 레이어'
+          ><img src='../images/support/layer-tool.svg' alt='' /><span
+            >레이어</span></button>
+            <button type='button' data-map-tool='distance' aria-pressed='false'>
+              <img src='../images/icons/measure-distance.svg' alt='' /><span>거리</span>
+            </button>
+            <button type='button' data-map-tool='area' aria-pressed='false'>
+              <img src='../images/icons/measure-area.svg' alt='' /><span>면적</span>
+            </button>
+            <button type='button' data-map-tool='depth' aria-pressed='false'>
+              <img src='../images/icons/measure-depth.svg' alt='' /><span>수심</span>
+            </button>
+            <button type='button' data-map-tool='bearing' aria-pressed='false'>
+              <img src='../images/icons/compass.svg' alt='' /><span>방위</span>
+            </button>
+            <button type='button' data-map-action='overview'>
+              <img src='../images/icons/full-map.svg' alt='' /><span>전체지도</span>
+            </button>
+            <button type='button' data-map-action='reset'>
+              <img src='../images/icons/reset-map.svg' alt='' /><span>초기화</span>
+            </button>
+      </div>
+      <div class='map-zoom'>
+        <button type='button' data-zoom-step='1' aria-label='단계 높이기'>
+          <img src='../images/icons/zoom-in.svg' alt='' />
+        </button>
+        <div class='map-zoom__track'>
+          <img src='../images/icons/zoom-scale.svg' alt='' />
+          <input
+            id='map-zoom-level'
+            aria-label='지도 확대 단계'
+            type='range'
+            min='1'
+            max='10'
+            value='5'
+            data-zoom
+          />
+        </div>
+        <button type='button' data-zoom-step='-1' aria-label='단계 낮추기'>
+          <img src='../images/icons/zoom-out.svg' alt='' />
+        </button>
+        <output for='map-zoom-level' data-zoom-output>Lv.5</output>
+      </div>
+    </aside> <div data-accident-clusters data-initial-hidden="true">
+      <button
+        type="button"
+        class="cluster support-cluster"
+        data-accident-cluster="0"
+        style="left:73.38541666666667%;top:47.96296296296296%"
+        data-initial-hidden="true"
+        aria-label="속초항 인근 사고 목록"
+      >
+        <span class="cluster__outer"
+          ><span class="cluster__middle"
+            ><span class="cluster__gradient"><b>5</b></span></span
+          ></span
+        ><img src="../images/support/cluster-pointer.svg" alt="" /><strong
+          >속초항 인근</strong
+        ></button
+      ><button
+        type="button"
+        class="cluster support-cluster"
+        data-accident-cluster="1"
+        style="left:63.85416666666667%;top:43.61111111111111%"
+        data-initial-hidden="true"
+        aria-label="속초 동방 사고 목록"
+      >
+        <span class="cluster__outer"
+          ><span class="cluster__middle"
+            ><span class="cluster__gradient"><b>5</b></span></span
+          ></span
+        ><img src="../images/support/cluster-pointer.svg" alt="" /><strong
+          >속초 동방</strong
+        ></button
+      ><button
+        type="button"
+        class="cluster support-cluster"
+        data-accident-cluster="2"
+        style="left:67.13541666666667%;top:30.648148148148145%"
+        data-initial-hidden="true"
+        aria-label="고성 · 북방 사고 목록"
+      >
+        <span class="cluster__outer"
+          ><span class="cluster__middle"
+            ><span class="cluster__gradient"><b>5</b></span></span
+          ></span
+        ><img src="../images/support/cluster-pointer.svg" alt="" /><strong
+          >고성 · 북방</strong
+        ></button
+      ><button
+        type="button"
+        class="cluster support-cluster"
+        data-accident-cluster="3"
+        style="left:67.34375%;top:58.05555555555555%"
+        data-initial-hidden="false"
+        aria-label="속초 · 남방 사고 목록"
+      >
+        <span class="cluster__outer"
+          ><span class="cluster__middle"
+            ><span class="cluster__gradient"><b>5</b></span></span
+          ></span
+        ><img src="../images/support/cluster-pointer.svg" alt="" /><strong
+          >속초 · 남방</strong
+        ></button
+      >
+    </div>
+    <div data-accident-pins data-initial-hidden="false">
+      <button
+        type="button"
+        class="accident-pin"
+        data-accident-pin="0"
+        style="left:64.89583333333334%;top:36.94444444444444%"
+        aria-label="사고 0 상세 정보"
+      >
+        <img src="../images/support/missing-pin.svg" alt="" /><img
+          class="accident-pin__warning"
+          src="../images/support/warning.svg"
+          alt="주의"
+        /></button
+      ><button
+        type="button"
+        class="accident-pin"
+        data-accident-pin="1"
+        style="left:68.02083333333334%;top:44.907407407407405%"
+        aria-label="사고 1 상세 정보"
+      >
+        <img src="../images/support/death-pin.svg" alt="" /></button
+      ><button
+        type="button"
+        class="accident-pin"
+        data-accident-pin="2"
+        style="left:74.0625%;top:45.27777777777777%"
+        aria-label="사고 2 상세 정보"
+      >
+        <img src="../images/support/death-pin.svg" alt="" /></button
+      ><button
+        type="button"
+        class="accident-pin"
+        data-accident-pin="3"
+        style="left:67.5%;top:59.166666666666664%"
+        aria-label="사고 3 상세 정보"
+      >
+        <img src="../images/support/injury-pin.svg" alt="" /><img
+          class="accident-pin__warning"
+          src="../images/support/warning.svg"
+          alt="주의"
+        /></button
+      ><button
+        type="button"
+        class="accident-pin"
+        data-accident-pin="4"
+        style="left:70.3125%;top:50.18518518518518%"
+        aria-label="사고 4 상세 정보"
+      >
+        <img src="../images/support/other-pin.svg" alt="" /><img
+          class="accident-pin__warning"
+          src="../images/support/warning.svg"
+          alt="주의"
+        /></button
+      >
+    </div>
+    <section
+      class="accident-detail"
+      data-accident-detail
+      role="dialog"
+      aria-labelledby="accident-detail-title"
+      tabindex="-1"
+      data-initial-hidden="true"
+    >
+      <div class="accident-detail__body">
+        <header>
+          <h2 id="accident-detail-title">
+            <img src="../images/support/missing-dot.svg" alt="" />고성 연안 조타장치손상
+          </h2>
+          <button type="button" data-detail-close aria-label="상세 정보 닫기">
+            <img src="../images/support/detail-close.svg" alt="" />
+          </button>
+        </header>
+        <div class="accident-detail__content">
+          <dl>
+            <div>
+              <dt>선박용도</dt>
+              <dd>화물선<small>연안화물선</small></dd>
+            </div>
+            <div>
+              <dt>선박톤수</dt>
+              <dd>100~500톤</dd>
+            </div>
+          </dl>
+          <dl>
+            <div>
+              <dt>사고위치</dt>
+              <dd>고성군 연안</dd>
+            </div>
+            <div>
+              <dt>발생일시</dt>
+              <dd>2026-02-28 16:40</dd>
+            </div>
+            <div>
+              <dt>사고유형</dt>
+              <dd>조타장치손상</dd>
+            </div>
+          </dl>
+          <footer>
+            <span>인명피해</span>
+            <div class="accident-detail__badges">
+              <em class="support-badge support-badge--danger">사망 0</em>
+              <em class="support-badge support-badge--neutral">실종 1</em>
+              <em class="support-badge support-badge--warning">부상 0</em>
+              <em class="support-badge support-badge--info">기타 0</em>
+            </div>
+          </footer>
+        </div>
+      </div>
+      <img class="accident-detail__arrow" src="../images/support/detail-arrow.svg" alt="" />
+    </section>
+    <aside class="accident-legend" aria-label="인명피해 범례">
+      <p>인명피해 기준 색상</p>
+      <div>
+        <img src="../images/support/death-dot.svg" alt="" /><span>사망 (빨간색)</span>
+      </div>
+      <div>
+        <img src="../images/support/missing-dot.svg" alt="" /><span>실종 (회색)</span>
+      </div>
+      <div>
+        <img src="../images/support/injury-dot.svg" alt="" /><span>부상 (주황색)</span>
+      </div>
+      <div>
+        <img src="../images/support/other-dot.svg" alt="" /><span>기타/무피해 (파란색)</span>
+      </div>
+    </aside>
+    
+      </main>
+      <header class='marine-header'>
+    
+      <a class='marine-header__brand' href='#'><div class='marine-header__logo'><img
+            src='../images/logos/logo.svg'
+            alt='로고'
+          /></div></a>
+      <img class='marine-header__wave' src='../images/backgrounds/header-wave.svg' alt='' />
+      <a
+        class='marine-header__close'
+        href='../list.html'
+        aria-label='해양서비스 닫고 페이지 목록으로 이동'
+      ><img src='../images/icons/header-close.svg' alt='' /></a>
+    </header>  <section
+      class="support-layers"
+      data-layer-panel
+      role="dialog"
+      aria-labelledby="layer-title"
+      tabindex="-1"
+      data-initial-hidden="true"
+    >
+      <header>
+        <h2 id="layer-title">해양 레이어 <span data-layer-count></span></h2>
+        <button type="button" data-layer-close aria-label="해양 레이어 닫기">
+          <img src="../images/support/layer-close.svg" alt="" />
+        </button>
+      </header>
+      <div class="support-layers__body">
+        <details class="layer-category" data-initial-open="true">
+          <summary>
+            향해지원 <span data-layer-count></span
+            ><img class="layer-expand" src="../images/support/expand.svg" alt="" /><img
+              class="layer-collapse"
+              src="../images/support/collapse.svg"
+              alt=""
+            />
+          </summary>
+          <div class="layer-groups">
+            <section>
+              <h3>항로표지</h3>
+              <div>
+                <label
+                  ><input
+                    type="checkbox"
+                    data-support-layer
+                    value="고정표지"
+                    data-initial-checked="false"
+                  /><img
+                    src="../images/support/layer-circle.svg"
+                    alt=""
+                  /><span>고정표지</span></label
+                ><label
+                  ><input
+                    type="checkbox"
+                    data-support-layer
+                    value="이동표지"
+                    data-initial-checked="false"
+                  /><img
+                    src="../images/support/layer-line.svg"
+                    alt=""
+                  /><span>이동표지</span></label
+                ><label
+                  ><input
+                    type="checkbox"
+                    data-support-layer
+                    value="교량등"
+                    data-initial-checked="false"
+                  /><img
+                    src="../images/support/layer-circle.svg"
+                    alt=""
+                  /><span>교량등</span></label
+                ><label
+                  ><input
+                    type="checkbox"
+                    data-support-layer
+                    value="레이콘"
+                    data-initial-checked="false"
+                  /><i class="layer-square"></i><span>레이콘</span></label
+                ><label
+                  ><input
+                    type="checkbox"
+                    data-support-layer
+                    value="AIS"
+                    data-initial-checked="false"
+                  /><img
+                    src="../images/support/layer-circle.svg"
+                    alt=""
+                  /><span>AIS</span></label
+                >
+              </div>
+            </section>
+            <section>
+              <h3>이상물체</h3>
+              <div>
+                <label
+                  ><input
+                    type="checkbox"
+                    data-support-layer
+                    value="간출암·암암·세암"
+                    data-initial-checked="false"
+                  /><img
+                    src="../images/support/layer-circle.svg"
+                    alt=""
+                  /><span>간출암·암암·세암</span></label
+                ><label
+                  ><input
+                    type="checkbox"
+                    data-support-layer
+                    value="노출암"
+                    data-initial-checked="false"
+                  /><img
+                    src="../images/support/layer-circle.svg"
+                    alt=""
+                  /><span>노출암</span></label
+                ><label
+                  ><input
+                    type="checkbox"
+                    data-support-layer
+                    value="어초"
+                    data-initial-checked="false"
+                  /><img
+                    src="../images/support/layer-circle.svg"
+                    alt=""
+                  /><span>어초</span></label
+                >
+              </div>
+            </section>
+            <section>
+              <h3>해상교통</h3>
+              <div>
+                <label
+                  ><input
+                    type="checkbox"
+                    data-support-layer
+                    value="정박지_법령"
+                    data-initial-checked="false"
+                  /><img
+                    src="../images/support/layer-circle.svg"
+                    alt=""
+                  /><span>정박지_법령</span></label
+                ><label
+                  ><input
+                    type="checkbox"
+                    data-support-layer
+                    value="양길항로부"
+                    data-initial-checked="false"
+                  /><i class="layer-square"></i><span>양길항로부</span></label
+                ><label
+                  ><input
+                    type="checkbox"
+                    data-support-layer
+                    value="진입금지"
+                    data-initial-checked="false"
+                  /><i class="layer-square"></i><span>진입금지</span></label
+                >
+              </div>
+            </section>
+            <section>
+              <h3>금지해역</h3>
+              <div>
+                <label
+                  ><input
+                    type="checkbox"
+                    data-support-layer
+                    value="수중레저활동금지구역"
+                    data-initial-checked="false"
+                  /><i class="layer-square"></i><span>수중레저활동금지구역</span></label
+                >
+              </div>
+            </section>
+          </div>
+        </details>
+        <details class="layer-category layer-category--secondary">
+          <summary>
+            항만경계<span data-layer-count></span
+            ><img class="layer-expand" src="../images/support/expand.svg" alt="" /><img
+              class="layer-collapse"
+              src="../images/support/collapse.svg"
+              alt=""
+            />
+          </summary>
+          <div class="layer-extra">
+            <label><input type="checkbox" data-support-layer value="항만경계" />항만경계</label>
+          </div>
+        </details>
+        <details class="layer-category layer-category--secondary">
+          <summary>
+            업무지원(인허가관련)<span data-layer-count></span
+            ><img class="layer-expand" src="../images/support/expand.svg" alt="" /><img
+              class="layer-collapse"
+              src="../images/support/collapse.svg"
+              alt=""
+            />
+          </summary>
+          <div class="layer-extra">
+            <label><input type="checkbox" data-support-layer value="업무지원(인허가관련)" />업무지원(인허가관련)</label>
+          </div>
+        </details>
+        <details class="layer-category layer-category--secondary">
+          <summary>
+            종합지도<span data-layer-count></span
+            ><img class="layer-expand" src="../images/support/expand.svg" alt="" /><img
+              class="layer-collapse"
+              src="../images/support/collapse.svg"
+              alt=""
+            />
+          </summary>
+          <div class="layer-extra">
+            <label><input type="checkbox" data-support-layer value="종합지도" />종합지도</label>
+          </div>
+        </details>
+        <div class="layer-chips" data-layer-chips hidden>
+          <button type="button" data-layer-reset aria-label="레이어 선택 초기화">
+            <img src="../images/support/layer-reset.svg" alt="" />
+          </button>
+          <div data-layer-chip-list></div>
+        </div>
+      </div>
+    </section>
+    
+    </div>
+  </body>
+</html>

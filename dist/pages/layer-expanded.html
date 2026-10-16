@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <meta name='description' content='' />
+    <meta name='theme-color' content='#123e49' />
+    <title>속초 DT | 해양 레이어 — 펼침 | 속초시 해양서비스</title>    
+    <script type="module" crossorigin src="../assets/modulepreload-polyfill-P2Xu9kJm.js"></script>
+    <script type="module" crossorigin src="../assets/map-toolbar-CYX6lTuw.js"></script>
+    <script type="module" crossorigin src="../assets/support--8_lnD9u.js"></script>
+    <link rel="stylesheet" crossorigin href="../assets/map-toolbar-Cm06Wtwl.css">
+  </head>
+  <body>
+    <div
+      class="marine-stage support-stage support-stage--layer-only"
+      data-root=".."
+      data-screen="layer-expanded"
+      data-layer-open="true"
+      data-results="false"
+      data-pins="false"
+      data-detail="false"
+    >
+    <a class="standalone-back" href="../list.html"
+        >← 페이지 목록</a
+      ><button class="marine-button standalone-reopen" data-layer-toggle type="button">
+        해양 레이어 열기</button
+      > <section
+      class="support-layers"
+      data-layer-panel
+      role="dialog"
+      aria-labelledby="layer-title"
+      tabindex="-1"
+      data-initial-hidden="false"
+    >
+      <header>
+        <h2 id="layer-title">해양 레이어 <span data-layer-count></span></h2>
+        <button type="button" data-layer-close aria-label="해양 레이어 닫기">
+          <img src="../images/support/layer-close.svg" alt="" />
+        </button>
+      </header>
+      <div class="support-layers__body">
+        <details class="layer-category" data-initial-open="true">
+          <summary>
+            향해지원 <span data-layer-count></span
+            ><img class="layer-expand" src="../images/support/expand.svg" alt="" /><img
+              class="layer-collapse"
+              src="../images/support/collapse.svg"
+              alt=""
+            />
+          </summary>
+          <div class="layer-groups">
+            <section>
+              <h3>항로표지</h3>
+              <div>
+                <label
+                  ><input
+                    type="checkbox"
+                    data-support-layer
+                    value="고정표지"
+                    data-initial-checked="false"
+                  /><img
+                    src="../images/support/layer-circle.svg"
+                    alt=""
+                  /><span>고정표지</span></label
+                ><label
+                  ><input
+                    type="checkbox"
+                    data-support-layer
+                    value="이동표지"
+                    data-initial-checked="false"
+                  /><img
+                    src="../images/support/layer-line.svg"
+                    alt=""
+                  /><span>이동표지</span></label
+                ><label
+                  ><input
+                    type="checkbox"
+                    data-support-layer
+                    value="교량등"
+                    data-initial-checked="false"
+                  /><img
+                    src="../images/support/layer-circle.svg"
+                    alt=""
+                  /><span>교량등</span></label
+                ><label
+                  ><input
+                    type="checkbox"
+                    data-support-layer
+                    value="레이콘"
+                    data-initial-checked="false"
+                  /><i class="layer-square"></i><span>레이콘</span></label
+                ><label
+                  ><input
+                    type="checkbox"
+                    data-support-layer
+                    value="AIS"
+                    data-initial-checked="false"
+                  /><img
+                    src="../images/support/layer-circle.svg"
+                    alt=""
+                  /><span>AIS</span></label
+                >
+              </div>
+            </section>
+            <section>
+              <h3>이상물체</h3>
+              <div>
+                <label
+                  ><input
+                    type="checkbox"
+                    data-support-layer
+                    value="간출암·암암·세암"
+                    data-initial-checked="false"
+                  /><img
+                    src="../images/support/layer-circle.svg"
+                    alt=""
+                  /><span>간출암·암암·세암</span></label
+                ><label
+                  ><input
+                    type="checkbox"
+                    data-support-layer
+                    value="노출암"
+                    data-initial-checked="false"
+                  /><img
+                    src="../images/support/layer-circle.svg"
+                    alt=""
+                  /><span>노출암</span></label
+                ><label
+                  ><input
+                    type="checkbox"
+                    data-support-layer
+                    value="어초"
+                    data-initial-checked="false"
+                  /><img
+                    src="../images/support/layer-circle.svg"
+                    alt=""
+                  /><span>어초</span></label
+                >
+              </div>
+            </section>
+            <section>
+              <h3>해상교통</h3>
+              <div>
+                <label
+                  ><input
+                    type="checkbox"
+                    data-support-layer
+                    value="정박지_법령"
+                    data-initial-checked="false"
+                  /><img
+                    src="../images/support/layer-circle.svg"
+                    alt=""
+                  /><span>정박지_법령</span></label
+                ><label
+                  ><input
+                    type="checkbox"
+                    data-support-layer
+                    value="양길항로부"
+                    data-initial-checked="false"
+                  /><i class="layer-square"></i><span>양길항로부</span></label
+                ><label
+                  ><input
+                    type="checkbox"
+                    data-support-layer
+                    value="진입금지"
+                    data-initial-checked="false"
+                  /><i class="layer-square"></i><span>진입금지</span></label
+                >
+              </div>
+            </section>
+            <section>
+              <h3>금지해역</h3>
+              <div>
+                <label
+                  ><input
+                    type="checkbox"
+                    data-support-layer
+                    value="수중레저활동금지구역"
+                    data-initial-checked="false"
+                  /><i class="layer-square"></i><span>수중레저활동금지구역</span></label
+                >
+              </div>
+            </section>
+          </div>
+        </details>
+        <details class="layer-category layer-category--secondary">
+          <summary>
+            항만경계<span data-layer-count></span
+            ><img class="layer-expand" src="../images/support/expand.svg" alt="" /><img
+              class="layer-collapse"
+              src="../images/support/collapse.svg"
+              alt=""
+            />
+          </summary>
+          <div class="layer-extra">
+            <label><input type="checkbox" data-support-layer value="항만경계" />항만경계</label>
+          </div>
+        </details>
+        <details class="layer-category layer-category--secondary">
+          <summary>
+            업무지원(인허가관련)<span data-layer-count></span
+            ><img class="layer-expand" src="../images/support/expand.svg" alt="" /><img
+              class="layer-collapse"
+              src="../images/support/collapse.svg"
+              alt=""
+            />
+          </summary>
+          <div class="layer-extra">
+            <label><input type="checkbox" data-support-layer value="업무지원(인허가관련)" />업무지원(인허가관련)</label>
+          </div>
+        </details>
+        <details class="layer-category layer-category--secondary">
+          <summary>
+            종합지도<span data-layer-count></span
+            ><img class="layer-expand" src="../images/support/expand.svg" alt="" /><img
+              class="layer-collapse"
+              src="../images/support/collapse.svg"
+              alt=""
+            />
+          </summary>
+          <div class="layer-extra">
+            <label><input type="checkbox" data-support-layer value="종합지도" />종합지도</label>
+          </div>
+        </details>
+        <div class="layer-chips" data-layer-chips hidden>
+          <button type="button" data-layer-reset aria-label="레이어 선택 초기화">
+            <img src="../images/support/layer-reset.svg" alt="" />
+          </button>
+          <div data-layer-chip-list></div>
+        </div>
+      </div>
+    </section>
+    
+    </div>
+  </body>
+</html>
