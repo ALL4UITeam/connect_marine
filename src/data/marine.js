@@ -220,7 +220,7 @@ export const marineContext = {
   tools: ['거리', '면적', '수심', '방위', '전체지도', '초기화'].map((label, index) => ({
     label,
     id: ['distance', 'area', 'depth', 'bearing', 'overview', 'reset'][index],
-    selectable: index < 4,
+    selectable: index < 5,
     icon: [
       images.measureDistance,
       images.measureArea,
@@ -228,6 +228,13 @@ export const marineContext = {
       images.compass,
       images.fullMap,
       images.resetMap,
+    ][index],
+    iconOn: [
+      images.measureDistanceOn,
+      images.measureAreaOn,
+      images.measureDepthOn,
+      images.compassOn,
+      images.fullMapOn,
     ][index],
     index,
   })),

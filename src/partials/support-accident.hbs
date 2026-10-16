@@ -27,14 +27,16 @@
         ><img src="{{@root.rootPath}}/images/support/filter-chevron.svg" alt="" />
       </summary>
       <div class="support-filter__options">
-        {{#each options}}<label
-          ><input
-            type="checkbox"
-            name="{{../id}}"
-            value="{{label}}"
-            data-initial-checked="{{and @root.page.filtersOpen checked}}"
-          />{{label}}</label
-        >{{/each}}
+        <div class="support-filter__list">
+          {{#each options}}<label
+            ><input
+              type="checkbox"
+              name="{{../id}}"
+              value="{{label}}"
+              data-initial-checked="{{and @root.page.filtersOpen checked}}"
+            />{{label}}</label
+          >{{/each}}
+        </div>
       </div>
     </details>
     {{/each}}

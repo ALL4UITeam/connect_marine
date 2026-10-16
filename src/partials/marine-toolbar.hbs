@@ -6,14 +6,19 @@
     {{#if page.isSupport}}<button
         type='button'
         data-layer-toggle
-        aria-expanded='false'
+        aria-expanded='{{choose page.layerOpen "true" "false"}}'
         aria-label='해양 레이어'
       ><img src='{{rootPath}}/images/support/layer-tool.svg' alt='' /><span
         >레이어</span></button>{{/if}}
     {{#each tools}}
       {{#if selectable}}
         <button type='button' data-map-tool='{{id}}' aria-pressed='false'>
-          <img src='{{@root.rootPath}}/images/{{icon}}' alt='' /><span>{{label}}</span>
+          <img
+            src='{{@root.rootPath}}/images/{{icon}}'
+            data-icon-off='{{@root.rootPath}}/images/{{icon}}'
+            data-icon-on='{{@root.rootPath}}/images/{{iconOn}}'
+            alt=''
+          /><span>{{label}}</span>
         </button>
       {{else}}
         <button type='button' data-map-action='{{id}}'>

@@ -9,7 +9,11 @@
   .map-toolbar__tools [data-layer-toggle] {
     color: white;
     border-color: #00357d;
-    background: linear-gradient(148deg, #2369c7 30%, #00a663 99%);
+    background: linear-gradient(147.78deg, #2369c7 30.31%, #00a663 98.79%);
+  }
+  .map-toolbar__tools [data-layer-toggle][aria-expanded='true'] {
+    background: #3782e8;
+    border-color: white;
   }
   .map-toolbar {
     top: max(70px, calc(50% - 380px));
@@ -286,18 +290,36 @@
     transform: rotate(180deg);
   }
   &__options {
-    max-height: 176px;
-    overflow: auto;
+    max-height: 180px;
     padding: 10px 16px;
-    display: grid;
-    gap: 10px;
+    overflow: hidden;
+  }
+  &__list {
+    max-height: 160px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
     scrollbar-width: thin;
+    scrollbar-color: rgb(0 0 0 / 20%) transparent;
+  }
+  &__list::-webkit-scrollbar {
+    width: 6px;
+  }
+  &__list::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: rgb(0 0 0 / 20%);
   }
   label {
     display: flex;
-    gap: 8px;
+    gap: 10px;
     align-items: center;
+    color: #424242;
     font-size: 13px;
+    line-height: 1.5;
+  }
+  label:has(input[value='전체']) {
+    font-weight: 700;
   }
 }
 [data-filter-count],

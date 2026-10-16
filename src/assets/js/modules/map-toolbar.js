@@ -20,17 +20,28 @@ export function initMapToolbar(stage) {
     });
   }
 
+  const paintTool = (tool) => {
+    const image = tool.querySelector('img');
+    if (!image?.dataset.iconOn) return;
+    image.src =
+      tool.getAttribute('aria-pressed') === 'true' ? image.dataset.iconOn : image.dataset.iconOff;
+  };
   tools.forEach((button) => {
     button.addEventListener('click', () => {
       const selected = button.getAttribute('aria-pressed') !== 'true';
-      tools.forEach((tool) =>
-        tool.setAttribute('aria-pressed', String(tool === button && selected)),
-      );
+      tools.forEach((tool) => {
+        tool.setAttribute('aria-pressed', String(tool === button && selected));
+        paintTool(tool);
+      });
+      if (button.dataset.mapTool === 'overview' && selected) updateLevel(slider.defaultValue);
     });
   });
   toolbar.querySelectorAll('[data-map-action]').forEach((button) => {
     button.addEventListener('click', () => {
-      tools.forEach((tool) => tool.setAttribute('aria-pressed', 'false'));
+      tools.forEach((tool) => {
+        tool.setAttribute('aria-pressed', 'false');
+        paintTool(tool);
+      });
       updateLevel(slider.defaultValue);
     });
   });

@@ -6,11 +6,17 @@
             alt=''
           /><span>1회차 재생</span></strong><div class='playback__state'><button
             type='button'
-            aria-label='재생 시작'
-            aria-pressed='false'
-          ><img src='{{rootPath}}/images/{{images.play}}' alt='' /><span>재생 중</span></button><span
-            class='playback__time'
-          ><b>09:00</b> / 18:00</span></div></div><div
+            data-playback-toggle
+            aria-pressed='{{choose page.isPlaying "true" "false"}}'
+            aria-label='{{choose page.isPlaying "재생 중" "일시정지"}}'
+          ><img
+              class='playback__icon'
+              src='{{rootPath}}/images/{{choose page.isPlaying images.play images.pause}}'
+              alt=''
+            /><span class='playback__label'>{{choose page.isPlaying "재생 중" "일시정지"}}</span></button><span
+            class='playback__divider'
+            aria-hidden='true'
+          ></span><span class='playback__time'><b>09:00</b><small>/</small>18:00</span></div></div><div
         class='playback__speeds'
         aria-label='재생 속도'
       >{{#each speeds}}<button

@@ -53,7 +53,7 @@
       background-color 120ms,
       box-shadow 120ms,
       transform 120ms;
-    &:hover {
+    &:hover:not([aria-pressed='true']):not([data-layer-toggle]) {
       background: white;
       box-shadow: 0 0 0 2px #80afef;
     }
@@ -62,8 +62,10 @@
     }
   }
   &__tools button[aria-pressed='true'] {
-    box-shadow: 0 0 0 3px #80afef;
-    background: white;
+    background: #00357d;
+    border-color: white;
+    color: white;
+    box-shadow: 0 0 10px #0003;
   }
 }
 .map-zoom {
@@ -410,23 +412,50 @@
     padding: 3px 8px 3px 4px;
     border: 1px solid #e0e0e0;
     border-radius: 20px;
+    background: white;
     font-size: 12px;
+    line-height: 1;
     white-space: nowrap;
   }
   &__state button {
     display: flex;
     align-items: center;
     gap: 4px;
+    color: #757575;
+    font-weight: 500;
+  }
+  &__state button[aria-pressed='true'] {
     color: #0059d1;
   }
+  &__icon {
+    width: 24px;
+    height: 24px;
+    flex: none;
+  }
+  &__label {
+    width: 48px;
+    flex: none;
+  }
+  &__divider {
+    width: 1px;
+    height: 10px;
+    background: #e0e0e0;
+    flex: none;
+  }
   &__time {
-    border-left: 1px solid #e0e0e0;
-    padding-left: 12px;
-    color: v.color(muted);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #757575;
+    font-weight: 400;
   }
   &__time b {
     color: #222;
-    font-weight: v.$weight-semibold;
+    font-weight: 600;
+  }
+  &__time small {
+    font-size: 10px;
+    line-height: 1;
   }
   &__speeds {
     display: flex;
@@ -649,6 +678,11 @@
   border: 1px solid v.color(primary);
   border-radius: 4px;
   font-weight: v.$weight-bold;
+  img {
+    width: 12px;
+    height: 12px;
+    object-fit: contain;
+  }
   &[aria-pressed='false'] {
     background: white;
     color: v.color(muted);

@@ -31,6 +31,16 @@ function initMarine(stage) {
       input.checked = false;
     });
   });
+  const playbackButton = query('[data-playback-toggle]');
+  const setPlayback = (playing) => {
+    playbackButton.setAttribute('aria-pressed', String(playing));
+    playbackButton.setAttribute('aria-label', playing ? '재생 중' : '일시정지');
+    playbackButton.querySelector('span').textContent = playing ? '재생 중' : '일시정지';
+    playbackButton.querySelector('img').src = imageUrl(playing ? images.play : images.pause);
+  };
+  playbackButton?.addEventListener('click', () => {
+    setPlayback(playbackButton.getAttribute('aria-pressed') !== 'true');
+  });
 
   queryAll(
     '[data-depth], [data-vertical-view], [data-target-visible], [data-target-select]',
