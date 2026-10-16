@@ -75,6 +75,4 @@ npm run check
 npm run preview
 ```
 
-`check`는 ESLint, 포맷 검사, 빌드를 실행합니다. 배포 파일은 `dist/`에 생성됩니다. Handlebars는 빌드 시 HTML로 변환되며 `dist/` 전체를 전달하면 됩니다.
-
-`main`에 푸시하면 GitHub Actions가 Pages로 배포합니다. 주소는 https://all4uiteam.github.io/connect_marine/ 입니다.
+배포 주소 https://all4uiteam.github.io/connect_marine/
