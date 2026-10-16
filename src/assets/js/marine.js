@@ -47,9 +47,21 @@ function initMarine(stage) {
   ).forEach((button) => {
     button.addEventListener('click', () => toggle(button));
   });
-  queryAll(
-    '[data-single-choice], .playback__speeds, .style-color__palette, .style-symbol__options',
-  ).forEach((group) => {
+  const applySymbolSize = (value, markChanged = true) => {
+    const input = query('#symbol-size');
+    if (!input) return;
+    const size = String(value);
+    input.value = size;
+    const percent =
+      ((Number(size) - Number(input.min)) / (Number(input.max) - Number(input.min))) * 100;
+    input.style.setProperty('--progress', `${percent}%`);
+    input.closest('.range-control')?.classList.toggle('is-changed', markChanged);
+    query('[data-symbol-output]').textContent = `${size}px`;
+    queryAll('[data-symbol-size]').forEach((button) =>
+      button.setAttribute('aria-pressed', String(button.dataset.symbolSize === size)),
+    );
+  };
+  queryAll('[data-single-choice], .playback__speeds, .style-color__palette').forEach((group) => {
     group.addEventListener('click', (event) => {
       const selected = event.target.closest('button');
       if (!selected) return;
@@ -57,6 +69,11 @@ function initMarine(stage) {
         .querySelectorAll('button')
         .forEach((button) => button.setAttribute('aria-pressed', String(button === selected)));
     });
+  });
+  query('.style-symbol__options')?.addEventListener('click', (event) => {
+    const selected = event.target.closest('[data-symbol-size]');
+    if (!selected) return;
+    applySymbolSize(selected.dataset.symbolSize);
   });
   queryAll('[data-layer-switch]').forEach((button) => {
     button.addEventListener('click', () => {
@@ -77,7 +94,7 @@ function initMarine(stage) {
       const output = input.closest('label')?.querySelector('output');
       if (output)
         output.textContent = `${Number(input.value).toLocaleString('ko-KR')}${input.dataset.unit ?? ''}`;
-      if (input.name === 'size') query('[data-symbol-output]').textContent = `${input.value}px`;
+      if (input.name === 'size') applySymbolSize(input.value);
     });
   });
 
@@ -147,13 +164,9 @@ function initMarine(stage) {
     dialog.focus({ preventScroll: true });
   }
   function resetStyle() {
-    form.elements.size.closest('.range-control').classList.remove('is-changed');
-    query('[data-symbol-output]').textContent = '6px';
+    applySymbolSize(6, false);
     queryAll('[data-color]').forEach((button, index) =>
       button.setAttribute('aria-pressed', String(index === 0)),
-    );
-    queryAll('[data-symbol-size]').forEach((button) =>
-      button.setAttribute('aria-pressed', String(button.dataset.symbolSize === '6')),
     );
   }
   function closeStyle() {
