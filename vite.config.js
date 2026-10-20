@@ -17,6 +17,46 @@ function findPages(directory) {
   });
 }
 
+function toClassicScript(code) {
+  const imported = [];
+  const withoutImports = code.replace(
+    /^import\s*\{([^}]+)\}\s*from\s*["'][^"']+["'];?\r?\n/gm,
+    (_, names) => {
+      imported.push(names.trim());
+      return '';
+    },
+  );
+  const withoutExports = withoutImports.replace(/\n?export\s*\{([^}]+)\};?\s*$/m, (_, names) => {
+    const bindings = names.split(',').map((name) =>
+      name
+        .trim()
+        .split(/\s+as\s+/)
+        .pop(),
+    );
+    return `\n${bindings.map((name) => `globalThis.${name} = ${name};`).join('\n')}\n`;
+  });
+  const header = imported.map((names) => `const { ${names} } = globalThis;\n`).join('');
+  return header + withoutExports;
+}
+
+function distFilePreview() {
+  return {
+    name: 'dist-file-preview',
+    apply: 'build',
+    enforce: 'post',
+    generateBundle(_, bundle) {
+      for (const item of Object.values(bundle)) {
+        if (item.type === 'chunk') item.code = toClassicScript(item.code);
+        if (item.type === 'asset' && item.fileName.endsWith('.html')) {
+          item.source = String(item.source)
+            .replaceAll('<script type="module" crossorigin ', '<script defer ')
+            .replaceAll(' crossorigin', '');
+        }
+      }
+    },
+  };
+}
+
 export default defineConfig({
   root: sourceRoot,
   base: './',
@@ -40,21 +80,33 @@ export default defineConfig({
           site,
           page,
           rootPath,
-          year: new Date().getFullYear(),
-          navigation: site.navigation.map((item) => ({
-            ...item,
-            href: `${rootPath}${item.path}`,
-            active: item.path === key,
-          })),
         };
       },
     }),
+    distFilePreview(),
   ],
   server: { host: '127.0.0.1', port: 5173, strictPort: true },
   preview: { host: '127.0.0.1', port: 4173, strictPort: true },
   build: {
     outDir: resolve(projectRoot, 'dist'),
     emptyOutDir: true,
-    rolldownOptions: { input: findPages(sourceRoot) },
+    minify: false,
+    cssMinify: false,
+    modulePreload: { polyfill: false },
+    rolldownOptions: {
+      input: findPages(sourceRoot),
+      output: {
+        entryFileNames: 'assets/js/[name].js',
+        chunkFileNames: 'assets/js/[name].js',
+        minifyInternalExports: false,
+        assetFileNames(assetInfo) {
+          const name = assetInfo.names[0] ?? '';
+          // 여러 HTML이 같은 SCSS를 쓰면 CSS가 공통 JS 청크(map-toolbar) 이름으로 나온다.
+          if (name === 'map-toolbar.css') return 'assets/css/marine[extname]';
+          if (name.endsWith('.css')) return 'assets/css/[name][extname]';
+          return 'assets/[name][extname]';
+        },
+      },
+    },
   },
 });

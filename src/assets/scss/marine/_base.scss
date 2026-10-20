@@ -3,7 +3,7 @@
 :root {
   --check-icon: url('/images/icons/check.svg');
   @each $name, $value in v.$colors {
-    --marine-#{$name}: #{$value};
+    --marine-#{"" + $name}: #{$value};
   }
   --marine-radius: #{v.$radius};
   --marine-panel-width: #{v.$panel-width};

@@ -1,6 +1,7 @@
 import { anchorMapPopup } from './modules/map-popup.js';
 import { initMapToolbar } from './modules/map-toolbar.js';
-import { images, driftTypes } from '../../data/marine.js';
+import { driftTypes } from '../../data/drift-types.js';
+import { images } from '../../data/images.js';
 
 const stage = document.querySelector('.marine-stage');
 if (stage) initMarine(stage);

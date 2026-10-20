@@ -6,10 +6,9 @@
     <meta name='description' content='' />
     <meta name='theme-color' content='#123e49' />
     <title>속초 DT | 교통정보 — 해양 레이어 | 속초시 해양서비스</title>    
-    <script type="module" crossorigin src="../assets/modulepreload-polyfill-P2Xu9kJm.js"></script>
-    <script type="module" crossorigin src="../assets/map-toolbar-CYX6lTuw.js"></script>
-    <script type="module" crossorigin src="../assets/support--8_lnD9u.js"></script>
-    <link rel="stylesheet" crossorigin href="../assets/map-toolbar-Cm06Wtwl.css">
+    <script defer src="../assets/js/map-toolbar.js"></script>
+    <script defer src="../assets/js/support.js"></script>
+    <link rel="stylesheet" href="../assets/css/marine.css">
   </head>
   <body>
     <div
@@ -206,24 +205,49 @@
         <button
             type='button'
             data-layer-toggle
-            aria-expanded='false'
+            aria-expanded='true'
             aria-label='해양 레이어'
           ><img src='../images/support/layer-tool.svg' alt='' /><span
             >레이어</span></button>
             <button type='button' data-map-tool='distance' aria-pressed='false'>
-              <img src='../images/icons/measure-distance.svg' alt='' /><span>거리</span>
+              <img
+                src='../images/icons/measure-distance.svg'
+                data-icon-off='../images/icons/measure-distance.svg'
+                data-icon-on='../images/icons/measure-distance-on.svg'
+                alt=''
+              /><span>거리</span>
             </button>
             <button type='button' data-map-tool='area' aria-pressed='false'>
-              <img src='../images/icons/measure-area.svg' alt='' /><span>면적</span>
+              <img
+                src='../images/icons/measure-area.svg'
+                data-icon-off='../images/icons/measure-area.svg'
+                data-icon-on='../images/icons/measure-area-on.svg'
+                alt=''
+              /><span>면적</span>
             </button>
             <button type='button' data-map-tool='depth' aria-pressed='false'>
-              <img src='../images/icons/measure-depth.svg' alt='' /><span>수심</span>
+              <img
+                src='../images/icons/measure-depth.svg'
+                data-icon-off='../images/icons/measure-depth.svg'
+                data-icon-on='../images/icons/measure-depth-on.svg'
+                alt=''
+              /><span>수심</span>
             </button>
             <button type='button' data-map-tool='bearing' aria-pressed='false'>
-              <img src='../images/icons/compass.svg' alt='' /><span>방위</span>
+              <img
+                src='../images/icons/compass.svg'
+                data-icon-off='../images/icons/compass.svg'
+                data-icon-on='../images/icons/compass-on.svg'
+                alt=''
+              /><span>방위</span>
             </button>
-            <button type='button' data-map-action='overview'>
-              <img src='../images/icons/full-map.svg' alt='' /><span>전체지도</span>
+            <button type='button' data-map-tool='overview' aria-pressed='false'>
+              <img
+                src='../images/icons/full-map.svg'
+                data-icon-off='../images/icons/full-map.svg'
+                data-icon-on='../images/icons/full-map-on.svg'
+                alt=''
+              /><span>전체지도</span>
             </button>
             <button type='button' data-map-action='reset'>
               <img src='../images/icons/reset-map.svg' alt='' /><span>초기화</span>

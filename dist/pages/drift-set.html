@@ -6,10 +6,9 @@
     <meta name='description' content='세트 체크 · 표류 경로 · 재생 컨트롤' />
     <meta name='theme-color' content='#123e49' />
     <title>속초 DT | 회차(세트) 선택</title>    
-    <script type="module" crossorigin src="../assets/modulepreload-polyfill-P2Xu9kJm.js"></script>
-    <script type="module" crossorigin src="../assets/map-toolbar-CYX6lTuw.js"></script>
-    <script type="module" crossorigin src="../assets/marine-BmRvwfSZ.js"></script>
-    <link rel="stylesheet" crossorigin href="../assets/map-toolbar-Cm06Wtwl.css">
+    <script defer src="../assets/js/map-toolbar.js"></script>
+    <script defer src="../assets/js/marine.js"></script>
+    <link rel="stylesheet" href="../assets/css/marine.css">
   </head>
   <body>
     <div
@@ -4564,19 +4563,44 @@
       <div class='map-toolbar__tools'>
         
             <button type='button' data-map-tool='distance' aria-pressed='false'>
-              <img src='../images/icons/measure-distance.svg' alt='' /><span>거리</span>
+              <img
+                src='../images/icons/measure-distance.svg'
+                data-icon-off='../images/icons/measure-distance.svg'
+                data-icon-on='../images/icons/measure-distance-on.svg'
+                alt=''
+              /><span>거리</span>
             </button>
             <button type='button' data-map-tool='area' aria-pressed='false'>
-              <img src='../images/icons/measure-area.svg' alt='' /><span>면적</span>
+              <img
+                src='../images/icons/measure-area.svg'
+                data-icon-off='../images/icons/measure-area.svg'
+                data-icon-on='../images/icons/measure-area-on.svg'
+                alt=''
+              /><span>면적</span>
             </button>
             <button type='button' data-map-tool='depth' aria-pressed='false'>
-              <img src='../images/icons/measure-depth.svg' alt='' /><span>수심</span>
+              <img
+                src='../images/icons/measure-depth.svg'
+                data-icon-off='../images/icons/measure-depth.svg'
+                data-icon-on='../images/icons/measure-depth-on.svg'
+                alt=''
+              /><span>수심</span>
             </button>
             <button type='button' data-map-tool='bearing' aria-pressed='false'>
-              <img src='../images/icons/compass.svg' alt='' /><span>방위</span>
+              <img
+                src='../images/icons/compass.svg'
+                data-icon-off='../images/icons/compass.svg'
+                data-icon-on='../images/icons/compass-on.svg'
+                alt=''
+              /><span>방위</span>
             </button>
-            <button type='button' data-map-action='overview'>
-              <img src='../images/icons/full-map.svg' alt='' /><span>전체지도</span>
+            <button type='button' data-map-tool='overview' aria-pressed='false'>
+              <img
+                src='../images/icons/full-map.svg'
+                data-icon-off='../images/icons/full-map.svg'
+                data-icon-on='../images/icons/full-map-on.svg'
+                alt=''
+              /><span>전체지도</span>
             </button>
             <button type='button' data-map-action='reset'>
               <img src='../images/icons/reset-map.svg' alt='' /><span>초기화</span>
@@ -4719,11 +4743,17 @@
                 alt=''
               /><span>1회차 재생</span></strong><div class='playback__state'><button
                 type='button'
-                aria-label='재생 시작'
+                data-playback-toggle
                 aria-pressed='false'
-              ><img src='../images/icons/play.svg' alt='' /><span>재생 중</span></button><span
-                class='playback__time'
-              ><b>09:00</b> / 18:00</span></div></div><div
+                aria-label='일시정지'
+              ><img
+                  class='playback__icon'
+                  src='../images/icons/pause.svg'
+                  alt=''
+                /><span class='playback__label'>일시정지</span></button><span
+                class='playback__divider'
+                aria-hidden='true'
+              ></span><span class='playback__time'><b>09:00</b><small>/</small>18:00</span></div></div><div
             class='playback__speeds'
             aria-label='재생 속도'
           ><button
