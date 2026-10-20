@@ -1,3 +1,4 @@
+(() => {
 //#region src/assets/js/modules/map-popup.js
 function anchorMapPopup(popup) {
 	let anchor;
@@ -76,3 +77,4 @@ function initMapToolbar(stage) {
 //#endregion
 globalThis.anchorMapPopup = anchorMapPopup;
 globalThis.initMapToolbar = initMapToolbar;
+})();

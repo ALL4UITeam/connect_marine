@@ -1,3 +1,4 @@
+(() => {
 const { anchorMapPopup, initMapToolbar } = globalThis;
 //#region src/data/images.js
 var images = {
@@ -393,3 +394,4 @@ function initMarine(stage) {
 	}
 }
 //#endregion
+})();

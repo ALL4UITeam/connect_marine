@@ -36,7 +36,7 @@ function toClassicScript(code) {
     return `\n${bindings.map((name) => `globalThis.${name} = ${name};`).join('\n')}\n`;
   });
   const header = imported.map((names) => `const { ${names} } = globalThis;\n`).join('');
-  return header + withoutExports;
+  return `(() => {\n${header}${withoutExports}})();\n`;
 }
 
 function distFilePreview() {

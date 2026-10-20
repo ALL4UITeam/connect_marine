@@ -1,3 +1,4 @@
+(() => {
 const { anchorMapPopup, initMapToolbar } = globalThis;
 //#region src/assets/js/support.js
 var stage = document.querySelector(".support-stage");
@@ -194,3 +195,4 @@ if (stage) {
 	});
 }
 //#endregion
+})();
